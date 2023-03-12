@@ -8,7 +8,7 @@ const index = async (req, res) => {
 }
 
 const error = async (req, res) => {
-    res.status(200).render('error', {
+    res.status(200).render('404', {
         msg: 'Error on request',
         user: req.user
     })
