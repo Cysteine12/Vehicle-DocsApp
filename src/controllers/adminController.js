@@ -145,9 +145,9 @@ const show_vehicle_papers = async (req, res) => {
 }
 
 const update_vehicle_papers = async (req, res) => {
-    const id = req.params.id
+    const _id = req.params.id
     
-    await Document.updateOne({ id }, {
+    await Document.updateOne({ _id }, {
         status: req.body.status
     })
     
@@ -173,9 +173,9 @@ const show_driver_license = async (req, res) => {
 }
 
 const update_driver_license = async (req, res) => {
-    const id = req.params.id
+    const _id = req.params.id
     
-    await Document.updateOne({ id }, {
+    await Document.updateOne({ _id }, {
         status: req.body.status
     })
     
@@ -201,10 +201,9 @@ const show_ownership_change = async (req, res) => {
 }
 
 const update_ownership_change = async (req, res) => {
-    const id = req.params.id
-    console.log(req.body.status)
+    const _id = req.params.id
     
-    await Document.updateOne({ id }, {
+    await Document.updateOne({ _id }, {
         status: req.body.status
     })
 
@@ -230,9 +229,9 @@ const show_comprehensive_insurance = async (req, res) => {
 }
 
 const update_comprehensive_insurance = async (req, res) => {
-    const id = req.params.id
-
-    await Document.updateOne({ id }, {
+    const _id = req.params.id
+    
+    await Document.updateOne({ _id }, {
         status: req.body.status
     })
     
@@ -256,9 +255,9 @@ const show_other_permits = async (req, res) => {
 }
 
 const update_other_permits = async (req, res) => {
-    const id = req.params.id
+    const _id = req.params.id
     
-    await Document.updateOne({ id }, {
+    await Document.updateOne({ _id }, {
         status: req.body.status
     })
     
