@@ -13,7 +13,7 @@
         {{/if}}
 
         <!--topbar-->
-        {{> _topbar}}
+        {{> _admin_topbar}}
 
         <!--data list-->
         <div class="details content_box">
@@ -74,6 +74,7 @@
                             <td>Status</td>
                             <td class="capitalize">
                                 {{document.status}}
+                                {{#if completeCheck}}
                                 <form action="/admin/document/change-of-ownership/{{document._id}}" method="POST">
                                     <input type="hidden" name="_method" value="PUT">
                                     <select name="status">
@@ -84,6 +85,7 @@
                                     </select>
                                     <input type="submit" value="Update Application">
                                 </form>
+                                {{/if}}
                             </td>
                         </tr>
                         <tr>

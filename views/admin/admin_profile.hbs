@@ -1,6 +1,6 @@
 <div class="container2">
     <!--Navigation-->
-    {{> _navigation}}
+    {{> _admin_navigation}}
 
     <!--Main-->
     <div class="main">
@@ -13,7 +13,7 @@
         {{/if}}
 
         <!--topbar-->
-        {{> _topbar}}
+        {{> _admin_topbar}}
 
         <!--Intro-->
         <div class="cardBox">
@@ -49,7 +49,6 @@
                     <input type="text" name="name" value={{user.name}} placeholder="Full Name" required>
                     <input type="email" name="email" value={{user.email}} placeholder="youremail@gmail.com" disabled>
                     <input type="tel" name="phone" value=0{{user.phone}} placeholder="Change Phone number" required>
-                    <input type="text" name="state" value={{user.state}} placeholder="State" required>
                     <input type="password" name="password" value="" placeholder="Your Password" required>
                     <input type="submit" value="Update">
                 </form>

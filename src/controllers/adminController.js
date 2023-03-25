@@ -140,7 +140,7 @@ const show_vehicle_papers = async (req, res) => {
         msg: req.flash('msg'),
         document: document,
         user: req.user,
-        completeCheck: document.status === 'completed'
+        completeCheck: document.status !== 'completed'
     })
 }
 
@@ -152,7 +152,7 @@ const update_vehicle_papers = async (req, res) => {
     })
     
     req.flash('msg', 'Document Updated successfully')
-    res.status(200).redirect(`/admin/document/vehicle-papers/${id}`)
+    res.status(200).redirect(`/admin/document/vehicle-papers/${_id}`)
 }
 
 
@@ -168,7 +168,7 @@ const show_driver_license = async (req, res) => {
         msg: req.flash('msg'),
         document: document,
         user: req.user,
-        completeCheck: document.status === 'completed'
+        completeCheck: document.status !== 'completed'
     })
 }
 
@@ -180,7 +180,7 @@ const update_driver_license = async (req, res) => {
     })
     
     req.flash('msg', 'Document Updated successfully')
-    res.status(200).redirect(`/admin/document/driver-license/${id}`)
+    res.status(200).redirect(`/admin/document/driver-license/${_id}`)
 }
 
 
@@ -196,7 +196,7 @@ const show_ownership_change = async (req, res) => {
         msg: req.flash('msg'),
         document: document,
         user: req.user,
-        completeCheck: document.status === 'completed'
+        completeCheck: document.status !== 'completed'
     })
 }
 
@@ -208,7 +208,7 @@ const update_ownership_change = async (req, res) => {
     })
 
     req.flash('msg', 'Document Updated successfully')
-    res.status(200).redirect(`/admin/document/change-of-ownership/${id}`)
+    res.status(200).redirect(`/admin/document/change-of-ownership/${_id}`)
 }
 
 
@@ -224,7 +224,7 @@ const show_comprehensive_insurance = async (req, res) => {
         msg: req.flash('msg'),
         document: document,
         user: req.user,
-        completeCheck: document.status === 'completed'
+        completeCheck: document.status !== 'completed'
     })
 }
 
@@ -236,7 +236,7 @@ const update_comprehensive_insurance = async (req, res) => {
     })
     
     req.flash('msg', 'Document Updated successfully')
-    res.status(200).redirect(`/admin/document/comprehensive-insurance/${id}`)
+    res.status(200).redirect(`/admin/document/comprehensive-insurance/${_id}`)
 }
 
 
@@ -250,7 +250,7 @@ const show_other_permits = async (req, res) => {
         msg: req.flash('msg'),
         document: document,
         user: req.user,
-        completeCheck: document.status === 'completed'
+        completeCheck: document.status !== 'completed'
     })
 }
 
@@ -262,7 +262,7 @@ const update_other_permits = async (req, res) => {
     })
     
     req.flash('msg', 'Document Updated successfully')
-    res.status(200).redirect(`/admin/document/other-permits/${id}`)
+    res.status(200).redirect(`/admin/document/other-permits/${_id}`)
 }
 
 

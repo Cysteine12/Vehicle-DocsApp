@@ -13,7 +13,7 @@
         {{/if}}
 
         <!--topbar-->
-        {{> _topbar}}
+        {{> _admin_topbar}}
 
         <!--data list-->
         <div class="details content_box">
@@ -44,7 +44,21 @@
                         </tr>
                         <tr>
                             <td>Status</td>
-                            <td>{{document.status}}</td>
+                            <td class="capitalize">
+                                {{document.status}}
+                                {{#if completeCheck}}
+                                <form action="/admin/document/other-permits/{{document._id}}" method="POST">
+                                    <input type="hidden" name="_method" value="PUT">
+                                    <select name="status">
+                                        <option hidden selected disabled>Update Status</option>
+                                        <option value="rejected">Rejected</option>
+                                        <option value="processing">Processing</option>
+                                        <option value="completed">Completed</option>
+                                    </select>
+                                    <input type="submit" value="Update Application">
+                                </form>
+                                {{/if}}
+                            </td>
                         </tr>
                         <tr>
                             <td>Date Submitted</td>
