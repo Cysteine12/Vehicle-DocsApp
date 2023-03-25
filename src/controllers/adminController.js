@@ -86,8 +86,8 @@ const dashboard = async (req, res) => {
     const documents = await Document.find({}).populate('userId').lean()
     const documentCount = await Document.count('documentCount')
     const vehicleCount = await Vehicle.count('vehicleCount')
-    const submittedCount = await Vehicle.find({ status: 'submitted' }).count('submittedCount')
-    const processingCount = await Vehicle.find({ status: 'processing' }).count('processingCount')
+    const submittedCount = await Document.find({ status: 'submitted' }).count('submittedCount')
+    const processingCount = await Document.find({ status: 'processing' }).count('processingCount')
     
     res.status(200).render('admin/dashboard', {
         msg: req.flash('msg'),
