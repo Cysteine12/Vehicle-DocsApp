@@ -13,18 +13,18 @@ module.exports = {
             return next()
         }
     },
-    ensureAdminGuest: (req, res, next) => {
-        if (req.isAuthenticated() && req.user.role === 'admin') {
-            res.redirect('/admin/dashboard')
-        } else {
-            return next()
-        }
-    },
     ensureAdminAuth: (req, res, next) => {
         if (req.isAuthenticated() && req.user.role === 'admin') {
             return next()
         } else {
             res.redirect('/admin/login')
+        }
+    },
+    ensureAdminGuest: (req, res, next) => {
+        if (req.isAuthenticated() && req.user.role === 'admin') {
+            res.redirect('/admin/dashboard')
+        } else {
+            return next()
         }
     },
     isAuth: (req) => {

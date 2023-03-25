@@ -1,0 +1,60 @@
+<div class="container2">
+    <!--Navigation-->
+    {{> _navigation}}
+
+    <!--Main-->
+    <div class="main">
+        <!--Error Alert-->
+        {{#if msg}}
+        <div class="alert" id="alert">
+            <span class="alert-text">{{msg}}</span>
+            <span class="cancel">x</span>
+        </div>
+        {{/if}}
+
+        <!--topbar-->
+        {{> _topbar}}
+
+        <!--Intro-->
+        <div class="cardBox">
+            <div class="welcomecard">
+                <div>
+                    <div class="numbers">Hi, {{ user.name }}</div>
+                    <div class="cardName">
+                        <p>Welcome <br>
+                            </p>
+                    </div>
+                </div>
+                <div class="iconBx">
+                    <!--ion-icon name="eye-outline"></ion-icon-->
+                </div>
+            </div>
+
+
+        </div>
+
+
+        
+
+        <!--data list-->
+        <div class="details">
+            <div class="recentOrders">
+                <div class="cardHeader">
+                    <h2>Update Personal details</h2>
+                    <a href="../pages/view_records.html" class="btn">View All</a>
+                </div>
+                <div class="err">{{ msg }}</div>
+                <form action={{user._id}} method="POST">
+                    <input type="hidden" name="_method" value="PUT">
+                    <input type="text" name="name" value={{user.name}} placeholder="Full Name" required>
+                    <input type="email" name="email" value={{user.email}} placeholder="youremail@gmail.com" disabled>
+                    <input type="tel" name="phone" value=0{{user.phone}} placeholder="Change Phone number" required>
+                    <input type="text" name="state" value={{user.state}} placeholder="State" required>
+                    <input type="password" name="password" value="" placeholder="Your Password" required>
+                    <input type="submit" value="Update">
+                </form>
+            </div>
+        </div>
+
+    </div>
+</div>

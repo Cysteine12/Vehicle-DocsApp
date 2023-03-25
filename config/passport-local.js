@@ -9,7 +9,12 @@ module.exports = (passport) => {
     },
     async (req, email, password, done) => {
         try {
-            const user = await User.findOne({ email }).lean()
+            let user;
+            if (req.body.role !== 'admin') {
+                user = await User.findOne({ email: email, role: 'user' }).lean()
+            } else {
+                user = await User.findOne({ email: email, role: 'admin' }).lean()
+            }
             if(user) {
                 const isMatch = user.password === password
                 if (!isMatch) {
@@ -27,11 +32,20 @@ module.exports = (passport) => {
         }
     }))
     passport.serializeUser((user, done) => {
-        done(null, user._id)
+        let userData = {
+            _id: user._id,
+            role: user.role
+        }
+        done(null, userData)
     })
-    passport.deserializeUser(async (id, done) => {
+    passport.deserializeUser(async (userData, done) => {
         try {
-            let user =  await User.findById(id).lean()
+            let user;
+            if (userData.role !== 'admin') {
+                user = await User.findOne({ _id: userData._id, role: 'user' }).lean()
+            } else {
+                user = await User.findOne({ _id: userData._id, role: 'admin' }).lean()
+            }
             return done(null, user)
         } catch (err) {
             return done(err, null)

@@ -15,7 +15,8 @@ const register = async (req, res, next) => {
                 phone: req.body.phone,
                 photo: 'img/user.png',
                 state: req.body.state,
-                source: req.body.source
+                source: req.body.source,
+                role: 'user'
             })
             await user.save()
     

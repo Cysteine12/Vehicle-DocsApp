@@ -72,6 +72,8 @@ app.use('/vehicle', require('./src/routes/vehicle'))
 
 app.use('/document', require('./src/routes/document'))
 
+app.use('/admin', require('./src/routes/admin'))
+
 app.use('/', require('./src/routes/index'))
 
 

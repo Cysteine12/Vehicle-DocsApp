@@ -1763,3 +1763,8 @@ footer .social_media p {
                 .content_box table tr td{
                     padding: 10px 20px;
                 }
+
+
+                .capitalize {
+                    text-transform: uppercase;
+                }

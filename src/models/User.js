@@ -23,7 +23,7 @@ const userSchema = new Schema({
     },
     state: {
         type: String,
-        required: true
+        required: false
     },
     source: {
         type: String,

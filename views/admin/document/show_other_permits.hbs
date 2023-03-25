@@ -1,0 +1,75 @@
+<div class="container2">
+    <!--Navigation-->
+    {{> _admin_navigation}}
+
+    <!--Main-->
+    <div class="main">
+        <!--Error Alert-->
+        {{#if msg}}
+        <div class="alert color-success" id="alert">
+            <span class="alert-text">{{msg}}</span>
+            <span class="cancel">x</span>
+        </div>
+        {{/if}}
+
+        <!--topbar-->
+        {{> _topbar}}
+
+        <!--data list-->
+        <div class="details content_box">
+            <div class="recentOrders">
+                <table border="1">
+                    <thead>
+                        <tr>
+                            <td>NAME</td>
+                            <td>DETAILS</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Type Of Document</td>
+                            <td>{{document.docType}}</td>
+                        </tr>
+                        <tr>
+                            <td>Vehicle Category</td>
+                            <td>{{document.data.vehicle_category}}</td>
+                        </tr>
+                        <tr>
+                            <td>Permit Category</td>
+                            <td>{{document.data.permit_category}}</td>
+                        </tr>
+                        <tr>
+                            <td>Delivery Location</td>
+                            <td>{{document.data.location}}</td>
+                        </tr>
+                        <tr>
+                            <td>Status</td>
+                            <td>{{document.status}}</td>
+                        </tr>
+                        <tr>
+                            <td>Date Submitted</td>
+                            <td>{{formatDate document.updatedAt 'MMMM Do YYYY, h:mm:ss a'}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <div>
+                    <div>Vehicle Photo:</div>
+                    <div>
+                        <img src="{{document.photoPath}}" alt="Vehicle picture" height="400" width="100%">
+                    </div>
+                </div>
+                <br>
+                {{#if deleteCheck}}
+                <div>
+                    <form action="/document/other-permits/{{document._id}}" method="POST">
+                        <input type="hidden" name="_method" value="DELETE">
+                        <input type="submit" value="Delete Form">
+                    </form>
+                </div>
+                {{/if}}
+            </div>
+        </div>
+
+    </div>
+</div>

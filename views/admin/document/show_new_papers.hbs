@@ -1,0 +1,98 @@
+<div class="container2">
+    <!--Navigation-->
+    {{> _admin_navigation}}
+
+    <!--Main-->
+    <div class="main">
+        <!--Error Alert-->
+        {{#if msg}}
+        <div class="alert color-success" id="alert">
+            <span class="alert-text">{{msg}}</span>
+            <span class="cancel">x</span>
+        </div>
+        {{/if}}
+
+        <!--topbar-->
+        {{> _topbar}}
+
+        <!--data list-->
+        <div class="details content_box">
+            <div class="recentOrders">
+                <table border="1">
+                    <thead>
+                        <tr>
+                            <td>NAME</td>
+                            <td>DETAILS</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Vehicle</td>
+                            <td>{{document.vehicleId.brand}} | {{document.vehicleId.model}} <a href="/vehicle/{{document.vehicleId._id}}" class="link">View vehicle</a></td>
+                        </tr>
+                        <tr>
+                            <td>Type Of Document</td>
+                            <td>{{document.docType}}</td>
+                        </tr>
+                        <tr>
+                            <td>Name On Paper</td>
+                            <td>{{document.data.doc_name}}</td>
+                        </tr>
+                        <tr>
+                            <td>Date of Birth</td>
+                            <td>{{document.data.dob}}</td>
+                        </tr>
+                        <tr>
+                            <td>Contact Address</td>
+                            <td>{{document.data.address}}</td>
+                        </tr>
+                        <tr>
+                            <td>Phone No 1</td>
+                            <td>{{document.data.phone1}}</td>
+                        </tr>
+                        <tr>
+                            <td>Phone No 2</td>
+                            <td>{{document.data.phone2}}</td>
+                        </tr>
+                        <tr>
+                            <td>Type of Registration</td>
+                            <td>{{document.data.reg_type}}</td>
+                        </tr>
+                        <tr>
+                            <td>Type of Plate</td>
+                            <td>{{document.data.plate_type}}</td>
+                        </tr>
+                        <tr>
+                            <td>Delivery Location</td>
+                            <td>{{document.data.location}}</td>
+                        </tr>
+                        <tr>
+                            <td>Status</td>
+                            <td>{{document.status}}</td>
+                        </tr>
+                        <tr>
+                            <td>Date Submitted</td>
+                            <td>{{formatDate document.updatedAt 'MMMM Do YYYY, h:mm:ss a'}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <div>
+                    <div>Uploads:</div>
+                    <div>
+                        <img src="{{document.photoPath}}" alt="Vehicle picture" height="400" width="100%">
+                    </div>
+                </div>
+                <br>
+                {{#if deleteCheck}}
+                <div>
+                    <form action="/document/vehicle-papers/{{document._id}}" method="POST">
+                        <input type="hidden" name="_method" value="DELETE">
+                        <input type="submit" value="Delete Form">
+                    </form>
+                </div>
+                {{/if}}
+            </div>
+        </div>
+    </div>
+</div>
