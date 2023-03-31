@@ -179,8 +179,9 @@
                 <h2>Our Newsletter</h2>
                 <p>Subscribe to our newsletter to get the latest <br> News and offers</p>
 
-                <form action="">
-                    <input type="email" placeholder="Email Address" required>
+                <form action="/send-mail" method="POST">
+                    <div>{{mailStatus}}</div>
+                    <input type="email" name="body" placeholder="Email Address" required>
                     <input type="submit">
                 </form>
             </div>

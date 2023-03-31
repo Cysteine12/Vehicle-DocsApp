@@ -13,11 +13,7 @@ const { ensureAuth, ensureGuest } = require('../middlewares/auth')
 
 router.get('/', ensureGuest, IndexController.index)
 
-router.get('/updateUser', async (req, res) => {
-    const User = require('../models/User')
-    const user = await User.updateMany({}, { role: 'user' })
-    res.status(200).send(user)
-})
+router.post('/send-mail', IndexController.sendEmail)
 
 router.get('*', IndexController.error)
 
