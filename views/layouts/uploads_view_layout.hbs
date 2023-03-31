@@ -33,6 +33,28 @@
     <script src="/js/filepond-plugin-image-overlay.min.js"></script>
 
     <script src="/js/filepond.min.js"></script>
-    <script src="/js/filepond-config.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            FilePond.registerPlugin(
+                FilePondPluginImagePreview,
+                FilePondPluginImageResize,
+                FilePondPluginFileEncode,
+                FilePondPluginGetFile,
+                FilePondPluginImageOverlay
+            )
+
+            FilePond.setOptions({
+                stylePanelAspectRatio: 300/200,
+                imageResizeTargetWidth: 200,
+                imageResizeTargetHeight: 300,
+                imagePreviewHeight: 300
+            })
+
+            // FilePond.parse(document.body)
+            const inputElement = document.querySelector('input[type="file"]')
+            const pond = FilePond.create(inputElement)
+            pond.addFile('{{document.photoPath}}')
+        })
+    </script>
 </body>
 </html>

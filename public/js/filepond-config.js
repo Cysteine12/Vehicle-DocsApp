@@ -2,7 +2,9 @@ document.addEventListener('DOMContentLoaded', () => {
     FilePond.registerPlugin(
         FilePondPluginImagePreview,
         FilePondPluginImageResize,
-        FilePondPluginFileEncode
+        FilePondPluginFileEncode,
+        FilePondPluginGetFile,
+        FilePondPluginImageOverlay
     )
 
     FilePond.setOptions({

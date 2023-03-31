@@ -1,5 +1,6 @@
 const LocalStrategy = require('passport-local').Strategy
 const User = require('../src/models/User')
+const bcrypt = require('bcryptjs')
 
 
 module.exports = (passport) => {
@@ -16,7 +17,8 @@ module.exports = (passport) => {
                 user = await User.findOne({ email: email, role: 'admin' }).lean()
             }
             if(user) {
-                const isMatch = user.password === password
+                const isMatch = bcrypt.compareSync(password, user.password)
+                
                 if (!isMatch) {
                     req.flash('err-msg', 'Incorrect password')
                     return done(null, false)

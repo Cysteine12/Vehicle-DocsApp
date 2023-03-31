@@ -1,4 +1,5 @@
 const User = require('../models/User')
+const bcrypt = require('bcryptjs')
 
 
 const register = async (req, res, next) => {
@@ -6,12 +7,14 @@ const register = async (req, res, next) => {
         const check = await User.findOne({ email: req.body.email })
         if (check != null) {
             req.flash('msg', 'Email already exists!')
-            res.redirect('/home')
+            res.redirect('/')
         } else {
+            const salt = bcrypt.genSaltSync(10)
+            
             const user = new User({
                 name: req.body.name,
                 email: req.body.email,
-                password: req.body.password,
+                password: bcrypt.hashSync(req.body.password, salt),
                 phone: req.body.phone,
                 photo: 'img/user.png',
                 state: req.body.state,
@@ -36,7 +39,9 @@ const profile = async (req, res) => {
  
 const update = async (req, res) => {
     try {
-        if(req.body.password !== req.user.password) {
+        const isMatch = bcrypt.compareSync(req.body.password, req.user.password)
+
+        if(!isMatch) {
             req.flash('msg', 'Wrong password!')
             res.redirect('/profile')
         } else {

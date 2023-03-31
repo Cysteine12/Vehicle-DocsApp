@@ -9,6 +9,11 @@ const savePhoto = (document, photoEncoded) => {
     }
 }
 
+const retrievePhoto = (document) => {
+    document.photoPath = `data:${document.photoType};base64,${document.photo.toString('base64')}`
+}
+
 module.exports = {
-    savePhoto
+    savePhoto,
+    retrievePhoto
 }

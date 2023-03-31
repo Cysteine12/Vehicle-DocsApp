@@ -1,6 +1,8 @@
 const User = require('../models/User')
 const Document = require('../models/Document')
 const Vehicle = require('../models/Vehicle')
+const bcrypt = require('bcryptjs')
+const photoService = require('../services/photoService')
 
 
 const login = async (req, res) => {
@@ -17,10 +19,12 @@ const register = async (req, res, next) => {
             req.flash('msg', 'Email already exists!')
             res.redirect('/admin/login')
         } else {
+            const salt = bcrypt.genSaltSync(10)
+
             const user = new User({
                 name: req.body.name,
                 email: req.body.email,
-                password: req.body.password,
+                password: bcrypt.hashSync(req.body.password, salt),
                 phone: req.body.phone,
                 photo: 'img/user.png',
                 role: 'admin'
@@ -43,7 +47,9 @@ const profile = async (req, res) => {
  
 const update = async (req, res) => {
     try {
-        if(req.body.password !== req.user.password) {
+        const isMatch = bcrypt.compareSync(req.body.password, req.user.password)
+
+        if(!isMatch) {
             req.flash('msg', 'Wrong password!')
             res.redirect('/admin/profile')
         } else {
@@ -80,7 +86,7 @@ const destroy = async (req, res) => {
 }
 
 
-//---- Other Controllers
+//---- Other Controllers ----//
 
 const dashboard = async (req, res) => {
     const documents = await Document.find({}).populate('userId').lean()
@@ -133,10 +139,11 @@ const show_vehicle_papers = async (req, res) => {
     const { id } = req.params
 
     const document = await Document.findOne({ _id: id }).populate('vehicleId').lean()
+ 
+    photoService.retrievePhoto(document)
                                 
-    document.photoPath = `data:${document.photoType};charset=utf-8;base64,${document.photo.toString('base64')}`
-    
     res.status(200).render('admin/document/show_new_papers', {
+        layout: 'uploads_view_layout',
         msg: req.flash('msg'),
         document: document,
         user: req.user,
@@ -162,9 +169,10 @@ const show_driver_license = async (req, res) => {
 
     const document = await Document.findOne({ _id: id }).lean()
                                 
-    document.photoPath = `data:${document.photoType};charset=utf-8;base64,${document.photo.toString('base64')}`
+    photoService.retrievePhoto(document)
     
     res.status(200).render('admin/document/show_driver_license', {
+        layout: 'uploads_view_layout',
         msg: req.flash('msg'),
         document: document,
         user: req.user,
@@ -190,9 +198,10 @@ const show_ownership_change = async (req, res) => {
 
     const document = await Document.findOne({ _id: id }).populate('vehicleId').lean()
                                 
-    document.photoPath = `data:${document.photoType};charset=utf-8;base64,${document.photo.toString('base64')}`
+    photoService.retrievePhoto(document)
     
     res.status(200).render('admin/document/show_ownership_change', {
+        layout: 'uploads_view_layout',
         msg: req.flash('msg'),
         document: document,
         user: req.user,
@@ -218,9 +227,10 @@ const show_comprehensive_insurance = async (req, res) => {
 
     const document = await Document.findOne({ _id: id }).lean()
                                 
-    document.photoPath = `data:${document.photoType};charset=utf-8;base64,${document.photo.toString('base64')}`
+    photoService.retrievePhoto(document)
     
     res.status(200).render('admin/document/show_comprehensive_insurance', {
+        layout: 'uploads_view_layout',
         msg: req.flash('msg'),
         document: document,
         user: req.user,
