@@ -11,8 +11,8 @@ const sendEmail = async (reciever) => {
     })
 
     let msg = await transporter.sendMail({
-        from: process.env.EMAIL_ACCOUNT,
-        to: reciever.email,
+        from: reciever.email,
+        to: process.env.EMAIL_ACCOUNT,
         subject: 'EmailAPI',
         html: "<h3> Hello, its a success!</h3> \n Congrats Man " + reciever.body
     })

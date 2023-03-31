@@ -15,7 +15,7 @@ const sendEmail = async (req, res) => {
         req.flash('mailStatus', 'Email Sent!')
         res.redirect('/')
     } catch (err) {
-        req.flash('mailStatus', 'Error, Email not sent!')
+        req.flash('mailStatus', `Error, Email not sent! ${err}`)
         res.redirect('/')
     }
 }
