@@ -1244,13 +1244,13 @@ footer .social_media p {
   }
 
   .btx-primary {
-      background: linear-gradient(90deg,#1de7ea, var(--main-green));
+      background-color: var(--main-green);
       color: #111;
       border: none;
   }
 
   .btx-primary:hover {
-      background: #1de7ea;
+      background-color:var(--main-green);
   }
 
 
