@@ -51,7 +51,7 @@
 
     .introcard {
          margin-top: 100px;
-        background-color: var(--main-green);
+        background-color: #4dc247;
         display: grid;
         grid-template-columns: repeat(3,3fr);
     }
