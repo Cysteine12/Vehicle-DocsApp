@@ -50,10 +50,10 @@
     }
 
     .introcard {
-         margin-top: 100px;
-        background-color: #4dc247;
-        display: grid;
-        grid-template-columns: repeat(3,3fr);
+        margin-top: 100px;
+        background-color: var(--lighter-green);
+        display: flex;
+        flex-direction: row;
     }
 
 
