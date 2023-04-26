@@ -883,7 +883,7 @@ a {
 
 .introcard {
     margin-top: 100px;
-    background-color: var(--lighter-green);
+    background-color: var(--main-green);
     align-items: center;
     
 }
@@ -1532,11 +1532,11 @@ footer .social_media p {
          .services .card {
              padding: 3em 1em;
              text-align: center;
-             background: rgba(0, 0, 0, 0.5);
-             background: rgba(127, 127, 127, 0.25);
+           background-color: var(--main-green);
              border-radius: 10px;
              border: 1px solid rgba(255, 255, 255, 0.18);
              position: relative;
+             color: white;
          }
     
          .services .card p{
