@@ -1445,7 +1445,7 @@ form input {
  /*Trial*/
 
   .trial {
-      background: var(--light-green);
+      background: var(--main-green);
       background-size: cover;
       padding: 5em 1em;
       justify-content: center;
