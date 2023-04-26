@@ -575,7 +575,7 @@ cardBox .welcomecard .numbers {
 
     .introcard {
         margin-top: 100px;
-        background-color: var(--lighter-green);
+        background-color: var(--main-green);
         display: flex;
         flex-direction: row;
     }
