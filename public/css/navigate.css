@@ -54,6 +54,7 @@
         background-color: var(--main-green);
         display: flex;
         flex-direction: row;
+        color:white;
     }
 
 
