@@ -154,8 +154,7 @@
                 <p>
                 "I recently moved to a new state and had no idea where to start when it came to registering my car. VEHDOC made the
                 process easy and stress-free. They walked me through the requirements and helped me gather all the necessary documents.
-                Thanks to VEHDOC, I was able to get my car registered quickly and easily. Their customer service team was fantastic and
-                always available to answer my questions. I would definitely recommend VEHDOC to anyone in need of vehicle registration
+                Thanks to VEHDOC, I was able to get my car registered quickly and easily. I would definitely recommend VEHDOC to anyone in need of vehicle registration
                 services."
 
                 </p>
@@ -174,33 +173,53 @@
 
         <!--Footer-->
         <footer>
-            <div class="social_media">
-                <h3 class="logo"><img src="/img/vehdoc.png" alt="">VEHDOC</h3>
-                <p>
-                    Our online portal can be accessed by anyone <br> at any time for maximum convenience.</p>
+            <div>
+                <h2>VEHDOC</h2>
+                <h3>
+                    Our online portal can be accessed by anyone <br> at any time for maximum convenience.</h3>
+                <form action="/send-mail" method="POST">
+                    <div class="input-wrap">
+                        <div>{{mailStatus}}</div>
+                        <input type="email" name="" id="" placeholder="Enter Your Email">
+                        <button type="submit" class="btx btx-primary">Send</button>
+                    </div>
+                </form>
             </div>
-
-            <div class="other_link">
-                <h3>Other Links</h3>
+        
+            <div>
+                <h3>Quick Links</h3>
                 <ul>
                     <li><a href="#">Home</a></li>
                     <li><a href="#">About Us</a></li>
                     <li><a href="#">Contact Us</a></li>
-                    
+                   
+                </ul>
             </div>
-
-            <div class="Newsletter">
-                <h2>Our Newsletter</h2>
-                <p>Subscribe to our newsletter to get the latest <br> News and offers</p>
-
-                <form action="/send-mail" method="POST">
-                    <div>{{mailStatus}}</div>
-                    <input type="email" name="body" placeholder="Email Address" required>
-                    <input type="submit">
-                </form>
+        
+            <div>
+                <h3>Information</h3>
+                <ul>
+                    <li><a href="#">Insurance</a></li>
+                    <li><a href="#">Vehicles permit</a></li>
+                    <li><a href="#">Delivery Date</a></li>
+                   
+                </ul>
             </div>
-
+        
+         
+            <div>
+                <h3>Social Media</h3>
+                <ul>
+                    <li><a href="#">Facebook</a></li>
+                    <li><a href="#">Instagram</a></li>
+                    <li><a href="#">Whatsapp</a></li>
+                   
+                </ul>
+            </div>
+        
+        
         </footer>
+
     </main>
 
     <div id="id01" class="modal">
