@@ -1101,74 +1101,67 @@ form input {
 
 /*Footer start here*/
 
-footer {
-    background-color: var(--black1);
-    margin: 0%;
-    height: fit-content;
-    display: flex;
-    flex-direction:column;
-    padding: 30px;
-    justify-content: space-around;
+
+  footer {
+    background-color: #262626;
     color: white;
+     display: grid;
+     grid-template-columns: repeat(1,3fr);
+      align-items: center;
+      flex-wrap: wrap;
+      padding:20px;
+      
+  }
 
+  footer li {
+      margin: 1.2em 0;
+      list-style-type: none;
+      padding:5px;
+  }
 
-}
+  footer li a {
+      color: #ccc;
+  }
 
-footer a {
-    color: #fff;
-    text-decoration: none;
-}
+  footer li a:hover {
+      text-decoration: none;
+  }
 
-.footer_image {
-    padding-left: 20px;
-}
+  footer input {
+      background-color: #1b2039;
+      border: none;
+      padding: 0.5em;
+      border-radius: 5px;
+      
+  }
 
-.footer_image img {
-    width: 30px;
+  footer hr {
+      border: 1px #1b2039 solid;
+      margin: 1.5em 0;
+  }
 
-}
+  footer p {
+      margin: 1em 0;
+  }
 
-footer .social_media {
-    max-width: 50%;
+  .btx {
+      padding: 0.7em 2em;
+      border-radius: 0.3em;
+      text-transform: uppercase;
+      transition: 0.3s;
+      width:200px;
+  }
 
-}
+  .btx-primary {
+      background: linear-gradient(90deg,#1de7ea, var(--main-green));
+      color: #111;
+      border: none;
+  }
 
-footer .social_media p {
-    padding: 20px;
-}
-
-.other_link {
-    max-width: 50%;
-    line-height: 1.7;
-    margin-top: 10px;
-}
-
-.other_link h3 {
-    text-align: start;
-}
-
-.other_link ul {
-    list-style: none;
-}
-
-.Newsletter {
-    max-width: 50%;
-    margin-top: 10px;
-}
-
-.Newsletter form input {
-    padding: 10px;
-    margin-top: 10px;
-}
-
-.Newsletter form input[type='submit'] {
-    background-color: #3CB371;
-    color: white;
-    border: 2px solid whitesmoke;
-    padding: 10px;
-    margin: 0px;
-}
-
+  .btx-primary:hover {
+    background: linear-gradient(90deg, #1de7ea, var(--main-green));
+    transition: all ease-in-out 230ms;
+  }
 /*Footer ends here*/
 
 
