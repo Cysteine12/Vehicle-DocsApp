@@ -578,6 +578,7 @@ cardBox .welcomecard .numbers {
         background-color: var(--main-green);
         display: flex;
         flex-direction: row;
+	    color:white;
     }
 
 
@@ -885,6 +886,7 @@ a {
     margin-top: 100px;
     background-color: var(--main-green);
     align-items: center;
+	color:white;
     
 }
 
