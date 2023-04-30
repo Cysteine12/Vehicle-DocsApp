@@ -13,7 +13,7 @@
         align-items: center;
         justify-content: center;
         gap: 100px; 
-        height: 70vh;
+        height: 75vh;
         max-width: 1200px;
     
 
@@ -23,13 +23,14 @@
     .welcome-image img {
         width: 100%;
         padding: 10px ;
-        margin: 0px;
+        margin-top: 8px;
         
     }
 
     .welcome-intro{
         text-align: start;
         width: 100%;
+        margin-top:80px
         
     }
 
@@ -113,6 +114,33 @@
                                 .grid {
                                     height: 20em;
                                 }
+    
+      .faqs{
+            padding: 100px ;
+            background-color:white;
+            display: flex;
+            flex-direction: row;
+           justify-content: space-around;
+                
+         }
+
+         .faqs-question{
+            margin-left: 20px;
+         }
+
+           .faqs-image {
+             display: block;
+           }
+                 .faqs-image img {
+                    width: 400px;
+                    position: sticky;
+                 }
+            
+          .accordion, .panel {    
+              width: 500px; 
+              color:var(--black);
+          }
+          
                 
 }
 
