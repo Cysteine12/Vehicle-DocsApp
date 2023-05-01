@@ -562,7 +562,7 @@ cardBox .welcomecard .numbers {
     }
 
     .welcome-intro button {
-        background-color: var(--light-green);
+        background-color: var(--main-green);
         color: white;
         padding: 10px;
         border: 0;
@@ -760,8 +760,9 @@ a {
 /******* Home Styling ********/
 /*Header*/
 .header {
+    background-color: whitesmoke;
     margin: 0;
-    padding: 10px;
+    padding: 2px 4px 5px 0px;
     display: flex;
     flex-direction:row;
     justify-content: space-between;
@@ -772,10 +773,11 @@ a {
     right: 0;
     transition: all 0.3s ease-in-out;
     align-items: center;
+    position: fixed;
+    z-index: 1;
     
 
 }
-
 .light{
     border: 3px solid wheat;
     height: 60px;
@@ -864,11 +866,11 @@ a {
 
 .welcome-intro h2 {
     font-size: 30px;
-    color: var(--light-green);
+    color: var(--main-green);
 }
 
 .welcome-intro button {
-    background-color: var(--light-green);
+    background-color: var(--main-green);
     color: white;
     padding: 15px;
     border: 0;
@@ -1105,7 +1107,7 @@ form input {
 
 
   footer {
-    background-color: #262626;
+    background-color: var(--main-green);
     color: white;
      display: grid;
      grid-template-columns: repeat(1,3fr);
@@ -1122,7 +1124,7 @@ form input {
   }
 
   footer li a {
-      color: #ccc;
+      color: white;
   }
 
   footer li a:hover {
@@ -1155,15 +1157,12 @@ form input {
   }
 
   .btx-primary {
-      background: linear-gradient(90deg,#1de7ea, var(--main-green));
-      color: #111;
+      background: white;
+      color: var(--main-green);
       border: none;
   }
 
-  .btx-primary:hover {
-    background: linear-gradient(90deg, #1de7ea, var(--main-green));
-    transition: all ease-in-out 230ms;
-  }
+
 /*Footer ends here*/
 
 
@@ -1532,6 +1531,7 @@ form input {
              border: 1px solid rgba(255, 255, 255, 0.18);
              position: relative;
              color: white;
+		 z-index: -1;
          }
     
          .services .card p{
@@ -1664,6 +1664,8 @@ form input {
                        transition: 0.3s;
                        transform: scale(50px);
                        padding: 2em;
+			   position:fixed;
+			   width:100%;
         
         
                    }
@@ -1672,7 +1674,7 @@ form input {
                    .menuopen ul {
                        display: block;
                        flex-direction: column;
-                       margin: 0 auto;
+                       margin: 30px auto;
                        justify-content: center;
                        align-items: center;
         
