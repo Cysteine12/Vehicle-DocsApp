@@ -64,6 +64,7 @@ a{
 
 .navigation.active{
     width: 80px;
+	 background-color: var(--black1);
 }
 
 .navigation ul{
@@ -182,7 +183,9 @@ a{
 .main.active {
     width: calc(100% - 80px);
     left: 80px;
+	 background-color: white;
 }
+
 
 .topbar {
     width: 100%;
