@@ -39,6 +39,32 @@ router.delete(
 )
 
 
+// Renew Papers
+router.get(
+    '/renew-papers', 
+    ensureAuth,
+    DocumentController.create_renew_papers,
+)
+
+router.post(
+    '/renew-papers', 
+    ensureAuth,
+    DocumentController.store_renew_papers,
+)
+
+router.get(
+    '/renew-papers/:id', 
+    ensureAuth,
+    DocumentController.show_renew_papers,
+)
+
+router.delete(
+    '/renew-papers/:id', 
+    ensureAuth,
+    DocumentController.destroy_renew_papers,
+)
+
+
 // Driver Licence
 router.get(
     '/driver-license', 

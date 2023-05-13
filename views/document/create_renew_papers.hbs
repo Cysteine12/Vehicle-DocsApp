@@ -1,0 +1,142 @@
+<div class="container2">
+    <!--Navigation-->
+    {{> _navigation}}
+
+    <!--Main-->
+    <div class="main">
+        <!--Error Alert-->
+        {{#if msg}}
+        <div class="alert color-success" id="alert">
+            <span class="alert-text">{{msg}}</span>
+            <span class="cancel">x</span>
+        </div>
+        {{/if}}
+
+        <!--topbar-->
+        {{> _topbar}}
+
+        <!--Form-->
+        <div class="formcard">
+            <div class="formcardheader">
+                <h2>Renew Vehicle Paper</h2>
+            </div>
+
+            <div class="formcarddetails">
+                <p><strong>REQUIRED</strong> <br>
+                    Please <strong>Check or Uncheck</strong> what papers you want renewed.
+                Note that for <strong>Lagos</strong>, you only get a <strong>Road Worthiness Referral
+                    Note </strong> to visit LACVIS Centre within 30 days of payment </p>
+
+                    <p><strong text="red">TIMELINE</strong> <br>
+                    Renewals of vehicle papers are done within 24 hours but during festive periods, there might be slight delays
+                    </p>
+            </div>
+
+            <div class="details">
+            <div class="recentOrders">
+
+                <form action="/document/vehicle-papers" method="POST">
+                    <h3>Select Vehicle</h3>
+                    <select name="vehicle_type" id="" title="Select cars">
+                        <option value="Motorcycle">Motorcycle</option>
+                        <option value="Saloon Car-Mini(1.4-1.9L)">Saloon Car-Mini(1.4-1.9L) e.p. Picanto, Corolla, Almera, Civic</option>
+                        <option value="Saloon Car-Maxi(2.0-2.6L)">Saloon Car-Maxi(2.0-2.6L) e.g. Camry, Benz, Accord, Lexus & Others</option>
+                        <option value="SUV | Jeep | Bus | Pick-Up | Crossover">SUV | Jeep | Bus | Pick-Up | Crossover</option>
+                        <option value="Coaster Bus">Coaster Bus</option>
+                        <option value="Mini Trucks | Trucks 15 Tons (Tippers)">Mini Trucks | Trucks 15 Tons (Tippers)</option>
+                        <option value="Trucks 20 Tons (6-10 Tyres)">Trucks 20 Tons (6-10 Tyres)</option>
+                        <option value="Trucks 30 Tons(Trailers 10+ Tyres)">Trucks 30 Tons(Trailers 10+ Tyres)</option>
+                    </select>
+                
+                
+                    <table class="table">
+                    
+                        <tr>
+                            <td><input type="checkbox" name="" id="" title="Add"></td>
+                            <td>Vehicle License</td>
+                            <td class="counter">
+                                <button type="button" onclick="decrement('demoInput1')">-</button>
+                                <input id="demoInput1" value="1" type="number" min="0" max="100" title="counter">
+                                <button type="button" onclick="increment('demoInput1')">+</button>
+                            </td>
+                        </tr>
+                    
+                        <tr>
+                            <td><input type="checkbox" name="" id="" title="Add"></td>
+                            <td>Road Worthiness(commercial)</td>
+                    
+                        </tr>
+                    
+                        <tr>
+                            <td><input type="checkbox" name="" id="" title="Add"></td>
+                            <td>Third Party Insurance</td>
+                    
+                        </tr>
+                    
+                        <tr>
+                            <td><input type="checkbox" name="" id="" title="Add"></td>
+                            <td>Hackney Permit</td>
+                            <td class="counter">
+                                <button type="button" onclick="decrement('demoInput2')">-</button>
+                                <input id="demoInput2" value="1" type="number" min="0" max="100" title="counter">
+                                <button type="button" onclick="increment('demoInput2')">+</button>
+                            </td>
+                        </tr>
+                    
+                        <tr>
+                            <td><input type="checkbox" name="" id="" title="Add"></td>
+                            <td>Heavy Duty Permit</td>
+                    
+                        </tr>
+                    
+                        <tr>
+                            <td><input type="checkbox" name="" id="" title="Add"></td>
+                            <td>Local Govt. Permit (Nigeria)</td>
+                    
+                        </tr>
+                    
+                        <tr>
+                            <td><input type="checkbox" name="" id="" title="Add"></td>
+                            <td>Local Govt. Permit (Southwest)</td>
+                    
+                        </tr>
+                    
+                        <tr>
+                            <td><input type="checkbox" name="" id="" title="Add"></td>
+                            <td>State Carriage Permit</td>
+                    
+                        </tr>
+                    
+                        <tr>
+                            <td><input type="checkbox" name="" id="" title="Add"></td>
+                            <td>OG-HUT(Highway Users Tax)</td>
+                    
+                        </tr>
+                    
+                        <tr>
+                            <td><input type="checkbox" name="" id="" title="Add"></td>
+                            <td>Truck & Trailer Permit (TTP)</td>
+                    
+                        </tr>
+                    
+                        <tr>
+                            <td><input type="checkbox" name="" id="" title="Add"></td>
+                            <td>Mid Year Permit</td>
+                    
+                        </tr>
+                    </table>
+
+                    <input type="text" title="Delivery Location" placeholder="Delivery Location">
+                    
+                    <input type="submit" value="Start Processing(# 0)" placeholder="" title="Submit Form">
+                </form>
+                
+            </div>
+
+            </div>
+            
+        </div>
+
+    </div>
+
+</div>

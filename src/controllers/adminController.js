@@ -89,7 +89,7 @@ const destroy = async (req, res) => {
 //---- Other Controllers ----//
 
 const dashboard = async (req, res) => {
-    const documents = await Document.find({}).populate('userId').lean()
+    const documents = await Document.find({}).populate('userId').sort({ updatedAt: -1 }).lean()
     const documentCount = await Document.count('documentCount')
     const vehicleCount = await Vehicle.count('vehicleCount')
     const submittedCount = await Document.find({ status: 'submitted' }).count('submittedCount')

@@ -70,6 +70,73 @@ const destroy_vehicle_papers = async (req, res) => {
 }
 
 
+// Renew Papers
+const create_renew_papers = async (req, res) => {
+    const { _id } = req.user
+
+    const vehicles = await Vehicle.find({ userId: _id }).lean()
+    
+    res.status(200).render('document/create_renew_papers', {
+        layout: 'uploads_layout',
+        msg: req.flash('msg'),
+        vehicles: vehicles,
+        user: req.user
+    })
+}
+
+const store_renew_papers = async (req, res) => {
+    const document = new Document({
+        userId: req.user._id,
+        vehicleId: req.body.vehicleId,
+        docType: 'Vehicle-Papers',
+        data: {
+            doc_name: req.body.doc_name,
+            dob: req.body.dob,
+            address: req.body.address,
+            phone1: req.body.phone1,
+            phone2: req.body.phone2,
+            reg_type: req.body.reg_type,
+            plate_type: req.body.plate_type,
+            location: req.body.location
+        },
+        status: 'submitted'
+    })
+    photoService.savePhoto(document, req.body.photo)
+
+    const data = await document.save()
+    
+    req.flash('msg', 'Document Uploaded successfully')
+    res.status(200).redirect(`/document/vehicle-papers/${data._id}`)
+}
+
+const show_renew_papers = async (req, res) => {
+    const { id } = req.params
+
+    const document = await Document.findOne({ _id: id }).populate('vehicleId').lean()
+                                
+    document.photoPath = `data:${document.photoType};charset=utf-8;base64,${document.photo.toString('base64')}`
+    
+    res.status(200).render('document/show_new_papers', {
+        msg: req.flash('msg'),
+        document: document,
+        user: req.user,
+        deleteCheck: document.status === 'submitted'
+    })
+}
+
+const destroy_renew_papers = async (req, res) => {
+    try {
+        const { id } = req.params
+        await Document.findByIdAndDelete(id)
+        
+        req.flash('msg', 'Form Deleted Successfully!')
+        res.redirect('/document/vehicle-papers')
+    } catch (err) {
+        res.status(404).json({ err })
+    }
+}
+
+
 // Driver license
 const create_driver_license = async (req, res) => {
     const { _id } = req.user
@@ -316,6 +383,10 @@ module.exports = {
     store_vehicle_papers,
     show_vehicle_papers,
     destroy_vehicle_papers,
+    create_renew_papers,
+    store_renew_papers,
+    show_renew_papers,
+    destroy_renew_papers,
     create_driver_license,
     store_driver_license,
     show_driver_license,

@@ -1,4 +1,3 @@
-
 //MenuToggle
 let toggle = document.querySelector('.toggle');
 let navigation = document.querySelector('.navigation');
@@ -27,5 +26,20 @@ if (document.getElementById('alert')) {
 
     cancelbtn.onclick = function () {
         alert.style.display = 'none'
+    }
+}
+
+function increment(button) {
+    if (button === 'demoInput1') {
+        document.getElementById('demoInput1').stepUp();
+    } else {
+        document.getElementById('demoInput2').stepUp();
+    }
+}
+function decrement(button) {
+    if (button === 'demoInput1') {
+        document.getElementById('demoInput1').stepDown();
+    } else {
+        document.getElementById('demoInput2').stepDown();
     }
 }

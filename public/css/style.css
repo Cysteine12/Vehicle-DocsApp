@@ -432,6 +432,29 @@ cardBox .welcomecard .numbers {
     padding: 10px;
 }
 
+.table input {
+    width: 55px;
+    height: 30px;
+}
+
+.table button,
+input {
+    width: 30px;
+    height: 30px;
+    align-items: center;
+    padding: 0px;
+}
+
+.counter{
+  display: flex;
+  align-items: center;
+}
+
+.counter input{
+  border-radius:0px;
+  margin: 2px 2px;
+}
+
 
 .status.delivered {
     padding: 2px 4px;
