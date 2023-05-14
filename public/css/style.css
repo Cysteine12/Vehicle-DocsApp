@@ -11,7 +11,7 @@
 
 
 :root{
-    --main-green: #004500;
+    --main-green: #4dc247;
     --light-green: #007C009f;
     --lighter-green: whitesmoke;
     --black1: #262626;
@@ -64,6 +64,7 @@ a{
 
 .navigation.active{
     width: 80px;
+	 background-color: var(--black1);
 }
 
 .navigation ul{
@@ -182,7 +183,9 @@ a{
 .main.active {
     width: calc(100% - 80px);
     left: 80px;
+	 background-color: white;
 }
+
 
 .topbar {
     width: 100%;
@@ -585,7 +588,7 @@ input {
     }
 
     .welcome-intro button {
-        background-color: var(--light-green);
+        background-color: var(--main-green);
         color: white;
         padding: 10px;
         border: 0;
@@ -598,9 +601,10 @@ input {
 
     .introcard {
         margin-top: 100px;
-        background-color: var(--lighter-green);
+        background-color: var(--main-green);
         display: flex;
         flex-direction: row;
+	    color:white;
     }
 
 
@@ -782,8 +786,9 @@ a {
 /******* Home Styling ********/
 /*Header*/
 .header {
+    background-color: whitesmoke;
     margin: 0;
-    padding: 10px;
+    padding: 2px 4px 5px 0px;
     display: flex;
     flex-direction:row;
     justify-content: space-between;
@@ -794,10 +799,11 @@ a {
     right: 0;
     transition: all 0.3s ease-in-out;
     align-items: center;
+    position: fixed;
+    z-index: 1;
     
 
 }
-
 .light{
     border: 3px solid wheat;
     height: 60px;
@@ -864,7 +870,7 @@ a {
     display: flex;
     flex-direction: column;
     width: 95%;
-        padding-left: 0px;
+        padding-top: 50px;
     
 }
 
@@ -886,11 +892,11 @@ a {
 
 .welcome-intro h2 {
     font-size: 30px;
-    color: var(--light-green);
+    color: var(--main-green);
 }
 
 .welcome-intro button {
-    background-color: var(--light-green);
+    background-color: var(--main-green);
     color: white;
     padding: 15px;
     border: 0;
@@ -906,8 +912,9 @@ a {
 
 .introcard {
     margin-top: 100px;
-    background-color: var(--lighter-green);
+    background-color: var(--main-green);
     align-items: center;
+	color:white;
     
 }
 
@@ -1124,73 +1131,66 @@ form input {
 
 /*Footer start here*/
 
-footer {
-    background-color: var(--black1);
-    margin: 0%;
-    height: fit-content;
-    display: flex;
-    flex-direction:column;
-    padding: 30px;
-    justify-content: space-around;
+
+  footer {
+    background-color: var(--main-green);
     color: white;
+     display: grid;
+     grid-template-columns: repeat(1,3fr);
+      align-items: center;
+      flex-wrap: wrap;
+      padding:20px;
+      
+  }
 
+  footer li {
+      margin: 1.2em 0;
+      list-style-type: none;
+      padding:5px;
+  }
 
+  footer li a {
+      color: white;
+  }
+
+  footer li a:hover {
+      text-decoration: none;
+  }
+
+  footer input {
+      background-color: #1b2039;
+      border: none;
+      padding: 0.5em;
+      border-radius: 5px;
+      
+  }
+footer h3{
+	font-weight:700;
 }
 
-footer a {
-    color: #fff;
-    text-decoration: none;
-}
+  footer hr {
+      border: 1px #1b2039 solid;
+      margin: 1.5em 0;
+  }
 
-.footer_image {
-    padding-left: 20px;
-}
+  footer p {
+      margin: 1em 0;
+  }
 
-.footer_image img {
-    width: 30px;
+  .btx {
+      padding: 0.7em 2em;
+      border-radius: 0.3em;
+      text-transform: uppercase;
+      transition: 0.3s;
+      width:200px;
+  }
 
-}
+  .btx-primary {
+      background: white;
+      color: var(--main-green);
+      border: none;
+  }
 
-footer .social_media {
-    max-width: 50%;
-
-}
-
-footer .social_media p {
-    padding: 20px;
-}
-
-.other_link {
-    max-width: 50%;
-    line-height: 1.7;
-    margin-top: 10px;
-}
-
-.other_link h3 {
-    text-align: start;
-}
-
-.other_link ul {
-    list-style: none;
-}
-
-.Newsletter {
-    max-width: 50%;
-    margin-top: 10px;
-}
-
-.Newsletter form input {
-    padding: 10px;
-    margin-top: 10px;
-}
-
-.Newsletter form input[type='submit'] {
-    background-color: #3CB371;
-    color: white;
-    border: 2px solid whitesmoke;
-    padding: 10px;
-    margin: 0px;
-}
 
 /*Footer ends here*/
 
@@ -1475,7 +1475,7 @@ footer .social_media p {
  /*Trial*/
 
   .trial {
-      background: var(--light-green);
+      background: var(--main-green);
       background-size: cover;
       padding: 5em 1em;
       justify-content: center;
@@ -1555,11 +1555,12 @@ footer .social_media p {
          .services .card {
              padding: 3em 1em;
              text-align: center;
-             background: rgba(0, 0, 0, 0.5);
-             background: rgba(127, 127, 127, 0.25);
+           background-color: var(--main-green);
              border-radius: 10px;
              border: 1px solid rgba(255, 255, 255, 0.18);
              position: relative;
+             color: white;
+		 z-index: -1;
          }
     
          .services .card p{
@@ -1598,6 +1599,77 @@ footer .social_media p {
              background-size: cover;
          }
 
+/*FAQs*/
+
+ .faqs {
+     padding: 10px;
+     background-color: white;
+     display: flex;
+     flex-direction: column;
+     justify-content: space-around;
+     align-items: center;
+
+ }
+ .faqs-question{ 
+     margin-left: 0px;
+ }
+ .faqs-question h2 {
+     text-align: start;
+     padding: 20px 0px 20px 0px;
+
+ }
+
+ .faqs-image {
+    display: none;
+ }
+
+ /*Accordion*/
+ .accordion {
+     background-color:transparent;
+     color: black;
+     cursor: pointer;
+     padding: 6px;
+     width: 95%;
+     border: none;
+     text-align: left;
+     outline: none;
+     font-size: 15px;
+     transition: 0.4s;
+   
+ }
+
+ .active,
+ .accordion:hover {
+     background-color: var(--main-green);
+     color: var(--black1);
+ }
+
+ .accordion:after {
+     content: '\002B';
+     color: var(--black1);
+     font-weight: bold;
+     float: right;
+     margin-left: 5px;
+ }
+
+ .active:after {
+     content: "\2212";
+ }
+
+ .panel {
+     padding: 2px 2px;
+     margin-bottom: 20px;
+     background-color: white;
+     max-height: 0;
+     width: 95%;
+     overflow: hidden;
+     transition: max-height 0.2s ease-out;
+ }
+
+.panel p{
+    text-align: start;
+    padding: 5px;
+}
 
 
                    .menubtn {
@@ -1621,6 +1693,8 @@ footer .social_media p {
                        transition: 0.3s;
                        transform: scale(50px);
                        padding: 2em;
+			   position:fixed;
+			   width:100%;
         
         
                    }
@@ -1629,7 +1703,7 @@ footer .social_media p {
                    .menuopen ul {
                        display: block;
                        flex-direction: column;
-                       margin: 0 auto;
+                       margin: 30px auto;
                        justify-content: center;
                        align-items: center;
         
