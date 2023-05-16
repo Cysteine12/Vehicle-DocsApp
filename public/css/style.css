@@ -1038,7 +1038,7 @@ a {
 
 
 .formcard {
-margin: 30px 40px 30px 30px;
+margin: 30px 40px 30px 40px;
 
 }
 
@@ -1061,7 +1061,7 @@ margin: 30px 40px 30px 30px;
 }
 
 form {
-    margin: 0;
+    margin: 10px;
     padding: 0;
 }
 
