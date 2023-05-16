@@ -15,11 +15,11 @@ const documentSchema = new Schema({
     },
     photo: {
         type: Buffer,
-        required: true
+        required: false
     },
     photoType: {
         type: String,
-        required: true
+        required: false
     },
     data: {
         type: Object,

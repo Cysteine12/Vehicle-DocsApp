@@ -16,5 +16,11 @@ router.get(
     UserController.dashboard,
 )
 
+router.get(
+    '/check/:doctype/:id', 
+    ensureAuth,
+    UserController.checkRoute,
+)
+
 
 module.exports = router

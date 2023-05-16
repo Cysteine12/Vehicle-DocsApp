@@ -18,6 +18,22 @@ const create_vehicle_papers = async (req, res) => {
 }
 
 const store_vehicle_papers = async (req, res) => {
+    const { _id } = req.user
+
+    const vehicle = new Vehicle({
+        userId: _id,
+        category: req.body.category,
+        brand: req.body.brand,
+        model: req.body.model,
+        plateNo: req.body.plateNo,
+        year: req.body.year,
+        engineNo: req.body.engineNo,
+        chassisNo: req.body.chassisNo,
+        color: req.body.color,
+        location: req.body.location
+    })
+    await vehicle.save()
+
     const document = new Document({
         userId: req.user._id,
         vehicleId: req.body.vehicleId,
@@ -87,36 +103,38 @@ const create_renew_papers = async (req, res) => {
 const store_renew_papers = async (req, res) => {
     const document = new Document({
         userId: req.user._id,
-        vehicleId: req.body.vehicleId,
-        docType: 'Vehicle-Papers',
+        docType: 'Renew-Papers',
         data: {
-            doc_name: req.body.doc_name,
-            dob: req.body.dob,
-            address: req.body.address,
-            phone1: req.body.phone1,
-            phone2: req.body.phone2,
-            reg_type: req.body.reg_type,
-            plate_type: req.body.plate_type,
+            vehicle_type: req.body.vehicle_type,
+            vehicle_license: req.body.vehicle_license,
+            vehicle_license_no: req.body.vehicle_license_no,
+            road_worthiness: req.body.road_worthiness,
+            third_party_insurance: req.body.third_party_insurance,
+            hackney_permit: req.body.hackney_permit,
+            hackney_permit_no: req.body.hackney_permit_no,
+            heavy_duty_permit: req.body.heavy_duty_permit,
+            local_govt_permit_nigeria: req.body.local_govt_permit_nigeria,
+            local_govt_permit_southwest: req.body.local_govt_permit_southwest,
+            state_carriage_permit: req.body.state_carriage_permit,
+            og_hut: req.body.og_hut,
+            truck_trailer_permit: req.body.truck_trailer_permit,
+            mid_year_permit: req.body.mid_year_permit,
             location: req.body.location
         },
         status: 'submitted'
     })
-    photoService.savePhoto(document, req.body.photo)
-
     const data = await document.save()
     
     req.flash('msg', 'Document Uploaded successfully')
-    res.status(200).redirect(`/document/vehicle-papers/${data._id}`)
+    res.status(200).redirect(`/document/renew-papers/${data._id}`)
 }
 
 const show_renew_papers = async (req, res) => {
     const { id } = req.params
 
-    const document = await Document.findOne({ _id: id }).populate('vehicleId').lean()
-                                
-    document.photoPath = `data:${document.photoType};charset=utf-8;base64,${document.photo.toString('base64')}`
-    
-    res.status(200).render('document/show_new_papers', {
+    const document = await Document.findOne({ _id: id }).lean()
+     
+    res.status(200).render('document/show_renew_papers', {
         msg: req.flash('msg'),
         document: document,
         user: req.user,
@@ -130,7 +148,7 @@ const destroy_renew_papers = async (req, res) => {
         await Document.findByIdAndDelete(id)
         
         req.flash('msg', 'Form Deleted Successfully!')
-        res.redirect('/document/vehicle-papers')
+        res.redirect('/document/renew-papers')
     } catch (err) {
         res.status(404).json({ err })
     }

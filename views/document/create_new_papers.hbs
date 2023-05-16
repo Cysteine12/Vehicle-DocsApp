@@ -16,7 +16,7 @@
         {{> _topbar}}
 
     <!--Form-->
-    <!--div class="formcard">
+    <div class="formcard">
         <div class="formcardheader">
             <h2>New Vehicle Documents</h2>
         </div>
@@ -28,20 +28,27 @@
             
             <p><strong>TIMELINE</strong> <br>
                 With next day delivery, new registration takes 48 hours (but 96 hours with a tint permit).</p>
-        </div-->
+        </div>
     
         <form action="/document/vehicle-papers" method="POST">
-            <h3>Select from your registered Vehicle list</h3>
-            <select name="vehicleId" title="Select vehicle" required>
-                <option hidden disabled selected value> -- Select vehicle -- </option>
-                {{#each vehicles}}
-                <option value="{{_id}}">{{brand}} - {{model}} - {{year}}</option>
-                {{/each}}
+            <h3>Vehicle Details</h3>
+            <select name="category" title="Select cars">
+                <option selected disabled hidden>Select Category of Vehicle</option>
+                <option value="Motorcycle">Motorcycle</option>
+                <option value="Saloon Car-Mini(1.4-1.9L) e.p. Picanto, Corolla, Almera, Civic">Saloon Car-Mini(1.4-1.9L) e.p. Picanto, Corolla, Almera, Civic</option>
+                <option value="Saloon Car-Maxi(2.0-2.6L) e.g. Camry, Benz, Accord, Lexus & Others">Saloon Car-Maxi(2.0-2.6L) e.g. Camry, Benz, Accord, Lexus & Others</option>
+                <option value="SUV | Jeep | Bus | Pick-Up | Crossover">SUV | Jeep | Bus | Pick-Up | Crossover</option>
+                <option value="Coaster Bus">Coaster Bus</option>
+                <option value="Truck | Tipper | Trailer">Truck | Tipper | Trailer</option>
             </select>
-            <span>
-                If your vehicle is not registered in the list yet, kindly 
-                <a href="/vehicle" class="link">register now</a>
-            </span>
+
+            <input type="text" name="brand" placeholder="Vehicle Brand e.g. Toyota" value="" title="Vehicle Brand">
+            <input type="text" name="model" placeholder="Vehicle Model e.g. Corolla" value="" title="Vehicle Model">
+            <input type="text" name="year" placeholder="Year of Make" value="" title="Year of Make">
+            <input type="text" name="plateNo" placeholder="Plate Number" value="" title="Plate Number">
+            <input type="text" name="engineNo" placeholder="Engine Number" value="" title="Engine Number">
+            <input type="text" name="chassisNo" placeholder="Chassis Number" value="" title="Name">
+            <input type="text" name="color" placeholder="Select Color" value="" title="Color">
             <br><br>
             <h3>Personal Information & Documents</h3>
             <span>Full name | Date of birth | Address</span>

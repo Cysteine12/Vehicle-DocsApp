@@ -1,0 +1,114 @@
+<div class="container2">
+    <!--Navigation-->
+    {{> _navigation}}
+
+    <!--Main-->
+    <div class="main">
+        <!--Error Alert-->
+        {{#if msg}}
+        <div class="alert color-success" id="alert">
+            <span class="alert-text">{{msg}}</span>
+            <span class="cancel">x</span>
+        </div>
+        {{/if}}
+
+        <!--topbar-->
+        {{> _topbar}}
+
+        <!--data list-->
+        <div class="details content_box">
+            <div class="recentOrders">
+                <table border="1">
+                    <thead>
+                        <tr>
+                            <td>NAME</td>
+                            <td>DETAILS</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Type Of Document</td>
+                            <td>{{document.docType}}</td>
+                        </tr>
+                        <tr>
+                            <td>Type Of Vehicle</td>
+                            <td>{{document.data.vehicle_type}}</td>
+                        </tr>
+                        <tr>
+                            <td>Vehicle License</td>
+                            <td>{{document.data.vehicle_license}}</td>
+                        </tr>
+                        <tr>
+                            <td>Road Worthiness</td>
+                            <td>{{document.data.road_worthiness}}</td>
+                        </tr>
+                        <tr>
+                            <td>Third Party Insurance</td>
+                            <td>{{document.data.third_party_insurance}}</td>
+                        </tr>
+                        <tr>
+                            <td>Hackney Permit</td>
+                            <td>{{document.data.hackney_permit}}</td>
+                        </tr>
+                        <tr>
+                            <td>Heavy Duty Permit</td>
+                            <td>{{document.data.heavy_duty_permit}}</td>
+                        </tr>
+                        <tr>
+                            <td>Local Govt. Permit (Nigeria)</td>
+                            <td>{{document.data.local_govt_permit_nigeria}}</td>
+                        </tr>
+                        <tr>
+                            <td>Local Govt. Permit (Southwest)</td>
+                            <td>{{document.data.local_govt_permit_southwest}}</td>
+                        </tr>
+                        <tr>
+                            <td>State Carriage Permit</td>
+                            <td>{{document.data.state_carriage_permit}}</td>
+                        </tr>
+                        <tr>
+                            <td>OG-HUT(Highway Users Tax)</td>
+                            <td>{{document.data.og_hut}}</td>
+                        </tr>
+                        <tr>
+                            <td>Truck & Trailer Permit (TTP)</td>
+                            <td>{{document.data.truck_trailer_permit}}</td>
+                        </tr>
+                        <tr>
+                            <td>Mid Year Permit</td>
+                            <td>{{document.data.mid_year_permit}}</td>
+                        </tr>
+                        <tr>
+                            <td>Delivery Location</td>
+                            <td>{{document.data.location}}</td>
+                        </tr>
+                        <tr>
+                            <td>Status</td>
+                            <td>{{document.status}}</td>
+                        </tr>
+                        <tr>
+                            <td>Date Submitted</td>
+                            <td>{{formatDate document.updatedAt 'MMMM Do YYYY, h:mm:ss a'}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <div>
+                    <div>Uploads:</div>
+                    <div>
+                        <img src="{{document.photoPath}}" alt="Vehicle picture" height="400" width="100%">
+                    </div>
+                </div>
+                <br>
+                {{#if deleteCheck}}
+                <div>
+                    <form action="/document/vehicle-papers/{{document._id}}" method="POST">
+                        <input type="hidden" name="_method" value="DELETE">
+                        <input type="submit" value="Delete Form">
+                    </form>
+                </div>
+                {{/if}}
+            </div>
+        </div>
+    </div>
+</div>

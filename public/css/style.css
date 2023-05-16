@@ -412,7 +412,7 @@ cardBox .welcomecard .numbers {
     border-bottom: 1px solid rgba(0, 0, 0, 0.01);
 }
 
-.details .recentOrders .table .table-row:nth-child(even) {
+.details .recentOrders .table .table-row:nth-child(odd) {
     background: #cdffcd;
 }
 

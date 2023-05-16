@@ -24,16 +24,14 @@
                 </div>
                 {{#if vehicles}}
                 <div class="table">
-                    <div class="thead">
-                        <div class="table-row">
+                    <div class="tbody">
+                        <div class=" thead table-row">
                             <div class="table-cell">S/N</div>
                             <div class="table-cell">Name</div>
                             <div class="table-cell">Plate Number</div>
                             <div class="table-cell">Papers Issued</div>
 
                         </div>
-                    </div>
-                    <div class="tbody">
                         {{#each vehicles}}
                         <a href="/vehicle/{{_id}}" class="table-row">
                             <div class="table-cell">{{inc @index "+" 1}}.</div>
@@ -56,26 +54,16 @@
                 <h2>Add a New Vehicle</h2>
             </div>
 
-            <div class="formcarddetails">
-                <p><strong>REQUIRED</strong> <br>
-                    Two phone numbers and a required customs paper or receipt (displaying the VIN or chassis number) 
-                </p>
-
-                <p><strong>TIMELINE</strong> <br>
-                With next day delivery, new registration takes 48 hours (but 96 hours with a tint permit).
-            </div>
-
             <form action="/vehicle" method="POST">
-                <h3>Enter Vehicle Details</h3>
+                <h3>Vehicle Details</h3>
                 <select name="category" title="Select cars">
+                    <option selected disabled hidden>Select Category of Vehicle</option>
                     <option value="Motorcycle">Motorcycle</option>
                     <option value="Saloon Car-Mini(1.4-1.9L) e.p. Picanto, Corolla, Almera, Civic">Saloon Car-Mini(1.4-1.9L) e.p. Picanto, Corolla, Almera, Civic</option>
                     <option value="Saloon Car-Maxi(2.0-2.6L) e.g. Camry, Benz, Accord, Lexus & Others">Saloon Car-Maxi(2.0-2.6L) e.g. Camry, Benz, Accord, Lexus & Others</option>
                     <option value="SUV | Jeep | Bus | Pick-Up | Crossover">SUV | Jeep | Bus | Pick-Up | Crossover</option>
                     <option value="Coaster Bus">Coaster Bus</option>
-                    <option value="Mini Trucks | Trucks 15 Tons (Tippers)">Mini Trucks | Trucks 15 Tons (Tippers)</option>
-                    <option value="Trucks 20 Tons (6-10 Tyres)">Trucks 20 Tons (6-10 Tyres)</option>
-                    <option value="Trucks 30 Tons(Trailers 10+ Tyres)">Trucks 30 Tons(Trailers 10+ Tyres)</option>
+                    <option value="Truck | Tipper | Trailer">Truck | Tipper | Trailer</option>
                 </select>
 
                 <input type="text" name="brand" placeholder="Vehicle Brand e.g. Toyota" value="" title="Vehicle Brand">
