@@ -11,27 +11,27 @@ const { ensureAuth } = require('../middlewares/auth')
 
 // -----------Router---------//
 router.get(
-    '/create-payment', 
+    '/create', 
     ensureAuth,
-    PaymentController.create_payment,
+    PaymentController.create_payment
 )
 
 router.post(
-    '/start-payment', 
+    '/start', 
     ensureAuth,
-    PaymentController.start_payment,
+    PaymentController.start_payment
 )
 
 router.get(
-    '/record-payment', 
+    '/callback?', 
     ensureAuth,
-    PaymentController.record_payment,
+    PaymentController.record_payment
 )
 
 router.get(
-    '/get-payment', 
+    '/get', 
     ensureAuth,
-    PaymentController.get_payment,
+    PaymentController.get_payment
 )
 
 

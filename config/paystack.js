@@ -5,7 +5,7 @@ const paystack = (request) => {
         const options = {
             url: 'https://api.paystack.co/transaction/initialize',
             headers: {
-                authorization: MySecretKey,
+                authorization: `Bearer ${MySecretKey}`,
                 'content-type': 'application/json',
                 'cache-control': 'no-cache'
             },
@@ -20,9 +20,9 @@ const paystack = (request) => {
 
     const verifyPayment = (ref, mycallback) => {
         const options = {
-            url: 'https://api.paystack.co/transaction/verify'+encodeURIComponent(ref),
+            url: 'https://api.paystack.co/transaction/verify/'+encodeURIComponent(ref),
             headers: {
-                authorization: MySecretKey,
+                authorization: `Bearer ${MySecretKey}`,
                 'content-type': 'application/json',
                 'cache-control': 'no-cache'
             }

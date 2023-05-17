@@ -10,7 +10,7 @@ const paymentService = {
                     email: data.email,
                     amount: data.amount *= 100, 
                     metadata: {
-                        full_name: form.full_name
+                        full_name: data.full_name
                     }
                 }
                 paystack.initializePayment(form, (error, body) => {

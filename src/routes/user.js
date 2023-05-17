@@ -13,13 +13,13 @@ const { ensureAuth } = require('../middlewares/auth')
 router.get(
     '/dashboard', 
     ensureAuth,
-    UserController.dashboard,
+    UserController.dashboard
 )
 
 router.get(
     '/check/:doctype/:id', 
     ensureAuth,
-    UserController.checkRoute,
+    UserController.checkRoute
 )
 
 

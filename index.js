@@ -74,6 +74,8 @@ app.use('/document', require('./src/routes/document'))
 
 app.use('/admin', require('./src/routes/admin'))
 
+app.use('/payment', require('./src/routes/payment'))
+
 app.use('/', require('./src/routes/index'))
 
 

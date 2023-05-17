@@ -1,6 +1,5 @@
 const paymentService = require('../services/paymentService')
 
-const paymentInstance = new paymentService()
 
 const create_payment = (req, res) => {
     res.status(200).render('user/create_payment', {
@@ -11,13 +10,14 @@ const create_payment = (req, res) => {
 
 const start_payment = async (req, res) => {
     try {
-        console.log(req.body);
-        const response = await paymentInstance.startPayment(req.body)
+        req.body.full_name = req.user.name
+        const response = await paymentService.startPayment(req.body)
         
-        res.status(201).send({ 
-            status: 'success', 
-            data: response 
-        })
+        // res.status(201).send({ 
+        //     status: 'success', 
+        //     data: response 
+        // })
+        res.redirect(response.data.authorization_url)
     } catch (err) {
         res.status(500).send({ 
             status: 'Failed', 
@@ -26,9 +26,9 @@ const start_payment = async (req, res) => {
     }
 }
 
-const record_payment = async () => {
+const record_payment = async (req, res) => {
     try {
-        const response = await paymentInstance.recordPayment(req.query)
+        const response = await paymentService.recordPayment(req.query)
         
         res.status(201).send({ 
             status: 'Success', 
@@ -42,9 +42,9 @@ const record_payment = async () => {
     }
 }
 
-const get_payment = async () => {
+const get_payment = async (req, res) => {
     try {
-        const response = await paymentInstance.getPayment(req.body)
+        const response = await paymentService.getPayment(req.body)
         
         res.status(201).send({ 
             status: 'Success', 
