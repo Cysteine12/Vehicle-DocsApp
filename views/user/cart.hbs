@@ -1,0 +1,33 @@
+<div class="container2">
+    <!--Navigation-->
+    {{> _navigation}}
+
+    <!--Main-->
+    <div class="main">
+        <!--topbar-->
+        {{> _topbar}}
+
+        <!--Form-->
+        <div class="formcard">
+            <h1>My Cart</h1>
+            <br>
+            {{#if documents}}
+                {{#each documents}}
+                    <ul>
+                        <a href="/check/{{docType}}/{{_id}}" class=" link table-row">
+                            <li>{{_id}} - {{docType}} - 
+                            {{formatDate updatedAt 'MMMM Do YYYY, h:mm:ss a'}}</li>
+                        </a>
+                    </ul>
+                    <form action="/payment/start/{{_id}}" method="POST">
+                        <input type="submit" value="Proceed to Pay (&#8358;{{data.amount}})" title="Submit">
+                    </form>
+                {{/each}}
+            {{else}}
+                No order has been placed yet.
+            {{/if}}
+        </div>
+
+    </div>
+
+</div>

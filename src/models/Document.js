@@ -1,4 +1,5 @@
 const { Schema, model } = require('mongoose')
+const Payment = require('./Payment')
 
 const documentSchema = new Schema({
     userId: {
@@ -24,6 +25,10 @@ const documentSchema = new Schema({
     data: {
         type: Object,
         required: true,
+    },
+    paymentReference: {
+        type: String,
+        required: false
     },
     status: {
         type: String,

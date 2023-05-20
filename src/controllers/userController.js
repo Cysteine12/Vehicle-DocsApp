@@ -4,7 +4,7 @@ const Vehicle = require('../models/Vehicle')
 const dashboard = async (req, res) => {
     const { _id } = req.user
 
-    const documents = await Document.find({ userId: _id }).populate('vehicleId').lean()
+    const documents = await Document.find({ userId: _id }).populate('vehicleId').sort({ createdAt: -1 }).lean()
     const documentCount = await Document.find({ userId: _id }).count('documentCount')
     const vehicleCount = await Vehicle.find({ userId: _id }).count('vehicleCount')
     
@@ -25,6 +25,9 @@ const checkRoute = (req, res) => {
     switch (doctype) {
         case 'Vehicle-Papers':
             res.redirect(`/document/vehicle-papers/${id}`)
+            break;
+        case 'Renew-Papers':
+            res.redirect(`/document/renew-papers/${id}`)
             break;
         case 'Driver-License':
             res.redirect(`/document/driver-license/${id}`)

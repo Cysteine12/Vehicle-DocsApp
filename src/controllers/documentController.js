@@ -46,7 +46,8 @@ const store_vehicle_papers = async (req, res) => {
             phone2: req.body.phone2,
             reg_type: req.body.reg_type,
             plate_type: req.body.plate_type,
-            location: req.body.location
+            location: req.body.location,
+            amount: req.body.amount
         },
         status: 'submitted'
     })
@@ -119,7 +120,8 @@ const store_renew_papers = async (req, res) => {
             og_hut: req.body.og_hut,
             truck_trailer_permit: req.body.truck_trailer_permit,
             mid_year_permit: req.body.mid_year_permit,
-            location: req.body.location
+            location: req.body.location,
+            amount: req.body.amount
         },
         status: 'submitted'
     })
@@ -174,7 +176,8 @@ const store_driver_license = async (req, res) => {
             licence_no: req.body.license_no,
             licence_name: req.body.license_name,
             licence_type: req.body.license_type,
-            location: req.body.location
+            location: req.body.location,
+            amount: req.body.amount
         },
         status: 'submitted'
     })
@@ -242,7 +245,8 @@ const store_ownership_change = async (req, res) => {
             address: req.body.address,
             reg_type: req.body.reg_type,
             plate_type: req.body.plate_type,
-            location: req.body.location
+            location: req.body.location,
+            amount: req.body.amount
         },
         status: 'submitted'
     })
@@ -301,7 +305,8 @@ const store_comprehensive_insurance = async (req, res) => {
             vehicle_use: req.body.vehicle_use,
             vehicle_price: req.body.vehicle_price,
             insurance_company: req.body.insurance_company,
-            location: req.body.location
+            location: req.body.location,
+            amount: req.body.amount
         },
         status: 'submitted'
     })
@@ -358,7 +363,8 @@ const store_other_permits = async (req, res) => {
         data: {
             vehicle_category: req.body.vehicle_category,
             permit_category: req.body.permit_category,
-            location: req.body.location
+            location: req.body.location,
+            amount: req.body.amount
         },
         status: 'submitted'
     })

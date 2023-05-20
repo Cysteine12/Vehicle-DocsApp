@@ -50,29 +50,29 @@
                     <table class="table">
                     
                         <tr>
-                            <td><input type="checkbox" name="vehicle_license" id="" title="Add"></td>
+                            <td><input type="checkbox" name="vehicle_license" id="" title="Add" onclick="renewPapers(event, 'vehicle_license')"></td>
                             <td>Vehicle License</td>
                             <td class="counter">
-                                <button type="button" onclick="decrement('demoInput1')">-</button>
-                                <input name="vehicle_license_no" id="demoInput1" value="1" type="number" min="0" max="100" title="counter">
-                                <button type="button" onclick="increment('demoInput1')">+</button>
+                                <button type="button" onclick="decrement('demoInput1'); renewPapers(event, 'vehicle_license', 'sub')">-</button>
+                                <input name="vehicle_license_no" id="demoInput1" value="0" type="number" min="0" max="100" title="counter" onchange="renewPapers(event, 'vehicle_license', 'input_box')" oninput="renewPapers(event, 'vehicle_license', 'input_box')">
+                                <button type="button" onclick="increment('demoInput1'); renewPapers(event, 'vehicle_license', 'add')">+</button>
                             </td>
                         </tr>
                     
                         <tr>
-                            <td><input type="checkbox" name="road_worthiness" id="" title="Add"></td>
+                            <td><input type="checkbox" name="road_worthiness" id="" title="Add" onclick="renewPapers(event, 'road_worthiness')"></td>
                             <td>Road Worthiness(commercial)</td>
                     
                         </tr>
                     
                         <tr>
-                            <td><input type="checkbox" name="third_party_insurance" id="" title="Add"></td>
+                            <td><input type="checkbox" name="third_party_insurance" id="" title="Add" onclick="renewPapers(event, 'third_party_insurance')"></td>
                             <td>Third Party Insurance</td>
                     
                         </tr>
                     
                         <tr>
-                            <td><input type="checkbox" name="hackney_permit" id="" title="Add"></td>
+                            <td><input type="checkbox" name="hackney_permit" id="" title="Add" onclick="renewPapers(event, 'hackney_permit')"></td>
                             <td>Hackney Permit</td>
                             <td class="counter">
                                 <button type="button" onclick="decrement('demoInput2')">-</button>
@@ -82,50 +82,50 @@
                         </tr>
                     
                         <tr>
-                            <td><input type="checkbox" name="heavy_duty_permit" id="" title="Add"></td>
+                            <td><input type="checkbox" name="heavy_duty_permit" id="" title="Add" onclick="renewPapers(event, 'heavy_duty_permit')"></td>
                             <td>Heavy Duty Permit</td>
                     
                         </tr>
                     
                         <tr>
-                            <td><input type="checkbox" name="local_govt_permit_nigeria" id="" title="Add"></td>
+                            <td><input type="checkbox" name="local_govt_permit_nigeria" id="" title="Add" onclick="renewPapers(event, 'local_government_permit_nigeria')"></td>
                             <td>Local Govt. Permit (Nigeria)</td>
                     
                         </tr>
                     
                         <tr>
-                            <td><input type="checkbox" name="local_govt_permit_southwest" id="" title="Add"></td>
+                            <td><input type="checkbox" name="local_govt_permit_southwest" id="" title="Add" onclick="renewPapers(event, 'local_government_permit_southwest')"></td>
                             <td>Local Govt. Permit (Southwest)</td>
                     
                         </tr>
                     
                         <tr>
-                            <td><input type="checkbox" name="state_carriage_permit" id="" title="Add"></td>
+                            <td><input type="checkbox" name="state_carriage_permit" id="" title="Add" onclick="renewPapers(event, 'state_carriage_permit')"></td>
                             <td>State Carriage Permit</td>
                     
                         </tr>
                     
                         <tr>
-                            <td><input type="checkbox" name="og_hut" id="" title="Add"></td>
+                            <td><input type="checkbox" name="og_hut" id="" title="Add" onclick="renewPapers(event, 'og_hut')"></td>
                             <td>OG-HUT(Highway Users Tax)</td>
                     
                         </tr>
                     
                         <tr>
-                            <td><input type="checkbox" name="truck_trailer_permit" id="" title="Add"></td>
+                            <td><input type="checkbox" name="truck_trailer_permit" id="" title="Add" onclick="renewPapers(event, 'truck_trailer_permit')"></td>
                             <td>Truck & Trailer Permit (TTP)</td>
                     
                         </tr>
                     
                         <tr>
-                            <td><input type="checkbox" name="mid_year_permit" id="" title="Add"></td>
+                            <td><input type="checkbox" name="mid_year_permit" id="" title="Add" onclick="renewPapers(event, 'mid_year_permit')"></td>
                             <td>Mid Year Permit</td>
                     
                         </tr>
                     </table>
 
                     <input type="text" name="location" title="Delivery Location" placeholder="Delivery Location" required>
-                    
+                    <input type="hidden" name="amount" value="" id="amount" required>
                     <input type="submit" value="Start Processing(# 0)" placeholder="" title="Submit Form">
                 </form>
                 

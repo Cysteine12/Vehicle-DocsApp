@@ -90,6 +90,19 @@ router.put(
     AdminController.update_vehicle_papers,
 )
 
+// Renew papers
+router.get(
+    '/document/renew-papers/:id', 
+    ensureAdminAuth,
+    AdminController.show_renew_papers,
+)
+
+router.put(
+    '/document/vehicle-papers/:id', 
+    ensureAdminAuth,
+    AdminController.update_renew_papers,
+)
+
 // Driver Licence
 router.get(
     '/document/driver-license/:id', 

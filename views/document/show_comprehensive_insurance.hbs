@@ -18,6 +18,8 @@
         <!--data list-->
         <div class="details content_box">
             <div class="recentOrders">
+                <h1>My Order Preview</h1>
+                <br>
                 <table border="1">
                     <thead>
                         <tr>
@@ -47,16 +49,30 @@
                             <td>{{document.data.insurance_company}}</td>
                         </tr>
                         <tr>
-                            <td>Status</td>
-                            <td>{{document.status}}</td>
-                        </tr>
-                        <tr>
                             <td>Delivery Location</td>
                             <td>{{document.data.location}}</td>
                         </tr>
                         <tr>
                             <td>Date Submitted</td>
                             <td>{{formatDate document.updatedAt 'MMMM Do YYYY, h:mm:ss a'}}</td>
+                        </tr>
+                        <tr>
+                            <td>Status</td>
+                            <td>{{document.status}}</td>
+                        </tr>
+                        <tr>
+                            <td>Payment</td>
+                            <td>
+                                &#8358;{{document.data.amount}}
+                                {{#if document.paymentReference}}
+                                    {{document.paymentReference}}
+                                {{else}}
+                                    Payment Pending
+                                    <a href="/payment/cart">
+                                        <button class="success btn-outline" type="submit">Proceed to Payment (&#8358;{{document.data.amount}})</button>
+                                    </a>
+                                {{/if}}
+                            </td>
                         </tr>
                     </tbody>
                 </table>

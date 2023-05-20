@@ -1,6 +1,6 @@
 <div class="container2">
     <!--Navigation-->
-    {{> _navigation}}
+    {{> _admin_navigation}}
 
     <!--Main-->
     <div class="main">
@@ -13,13 +13,11 @@
         {{/if}}
 
         <!--topbar-->
-        {{> _topbar}}
+        {{> _admin_topbar}}
 
         <!--data list-->
         <div class="details content_box">
             <div class="recentOrders">
-                <h1>My Order Preview</h1>
-                <br>
                 <table border="1">
                     <thead>
                         <tr>
@@ -85,33 +83,33 @@
                             <td>{{document.data.location}}</td>
                         </tr>
                         <tr>
-                            <td>Date Submitted</td>
-                            <td>{{formatDate document.updatedAt 'MMMM Do YYYY, h:mm:ss a'}}</td>
-                        </tr>
-                        <tr>
                             <td>Status</td>
-                            <td>{{document.status}}</td>
-                        </tr>
-                        <tr>
-                            <td>Payment</td>
-                            <td>
-                                &#8358;{{document.data.amount}}
-                                {{#if document.paymentReference}}
-                                    {{document.paymentReference}}
-                                {{else}}
-                                    Payment Pending
-                                    <a href="/payment/cart">
-                                        <button class="success btn-outline" type="submit">Proceed to Payment (&#8358;{{document.data.amount}})</button>
-                                    </a>
+                            <td class="capitalize">
+                                {{document.status}}
+                                {{#if completeCheck}}
+                                <form action="/admin/document/comprehensive-insurance/{{document._id}}" method="POST">
+                                    <input type="hidden" name="_method" value="PUT">
+                                    <select name="status">
+                                        <option hidden selected disabled>Update Status</option>
+                                        <option value="rejected">Rejected</option>
+                                        <option value="processing">Processing</option>
+                                        <option value="completed">Completed</option>
+                                    </select>
+                                    <input type="submit" value="Update Application">
+                                </form>
                                 {{/if}}
                             </td>
+                        </tr>
+                        <tr>
+                            <td>Date Submitted</td>
+                            <td>{{formatDate document.updatedAt 'MMMM Do YYYY, h:mm:ss a'}}</td>
                         </tr>
                     </tbody>
                 </table>
                 <br>
                 {{#if deleteCheck}}
                 <div>
-                    <form action="/document/vehicle-papers/{{document._id}}" method="POST">
+                    <form action="/document/renew-papers/{{document._id}}" method="POST">
                         <input type="hidden" name="_method" value="DELETE">
                         <input type="submit" value="Delete Form">
                     </form>

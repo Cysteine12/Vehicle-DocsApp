@@ -32,23 +32,22 @@
     
         <form action="/document/vehicle-papers" method="POST">
             <h3>Vehicle Details</h3>
-            <select name="category" title="Select cars">
+            <select name="category" title="Select cars" onchange="if (typeof(this.selectedIndex) != 'undefined') newPapers(this.selectedIndex)" required>
                 <option selected disabled hidden>Select Category of Vehicle</option>
-                <option value="Motorcycle">Motorcycle</option>
+                <option value="Motorcycle">Motorcycle | Tricycle</option>
                 <option value="Saloon Car-Mini(1.4-1.9L) e.p. Picanto, Corolla, Almera, Civic">Saloon Car-Mini(1.4-1.9L) e.p. Picanto, Corolla, Almera, Civic</option>
                 <option value="Saloon Car-Maxi(2.0-2.6L) e.g. Camry, Benz, Accord, Lexus & Others">Saloon Car-Maxi(2.0-2.6L) e.g. Camry, Benz, Accord, Lexus & Others</option>
                 <option value="SUV | Jeep | Bus | Pick-Up | Crossover">SUV | Jeep | Bus | Pick-Up | Crossover</option>
-                <option value="Coaster Bus">Coaster Bus</option>
+                <option value="Coaster Bus">Coaster Bus</span></option>
                 <option value="Truck | Tipper | Trailer">Truck | Tipper | Trailer</option>
             </select>
-
-            <input type="text" name="brand" placeholder="Vehicle Brand e.g. Toyota" value="" title="Vehicle Brand">
-            <input type="text" name="model" placeholder="Vehicle Model e.g. Corolla" value="" title="Vehicle Model">
-            <input type="text" name="year" placeholder="Year of Make" value="" title="Year of Make">
-            <input type="text" name="plateNo" placeholder="Plate Number" value="" title="Plate Number">
-            <input type="text" name="engineNo" placeholder="Engine Number" value="" title="Engine Number">
-            <input type="text" name="chassisNo" placeholder="Chassis Number" value="" title="Name">
-            <input type="text" name="color" placeholder="Select Color" value="" title="Color">
+            <input type="text" name="brand" placeholder="Vehicle Brand e.g. Toyota" value="" title="Vehicle Brand" required>
+            <input type="text" name="model" placeholder="Vehicle Model e.g. Corolla" value="" title="Vehicle Model" required>
+            <input type="text" name="year" placeholder="Year of Make" value="" title="Year of Make" required>
+            <input type="text" name="plateNo" placeholder="Plate Number" value="" title="Plate Number" required>
+            <input type="text" name="engineNo" placeholder="Engine Number" value="" title="Engine Number" required>
+            <input type="text" name="chassisNo" placeholder="Chassis Number" value="" title="Name" required>
+            <input type="text" name="color" placeholder="Select Color" value="" title="Color" required>
             <br><br>
             <h3>Personal Information & Documents</h3>
             <span>Full name | Date of birth | Address</span>
@@ -73,24 +72,25 @@
             <input type="text" name="doc_name" placeholder="Name to be on Vehicle Documents" required>
             <input type="number" name="phone1" placeholder="Phone Number to register Vehicle" required>
             <input type="number" name="phone2" placeholder="Second Phone Number(required)" required>
-    
-            <select name="reg_type" id="" title="Registration Type" required>
+            
+            <select name="reg_type" id="" title="Registration Type" onchange="if (typeof(this.selectedIndex) != 'undefined') newPapers(null, this.selectedIndex-1)" required>
                 <option hidden selected disabled>Registration Type</option>
                 <option value="Private Vehicle(With 3rd Party Insurance)">Private Vehicle(With 3rd Party Insurance)</option>
                 <option value="Private Vehicle(No Insurance)">Private Vehicle(No Insurance) </option>
                 <option value="Commercial Vehicle(With 3rd Party Insurance)">Commercial Vehicle(With 3rd Party Insurance)</option>
                 <option value="Commercial Vehicle(No Insurance)">Commercial Vehicle(No Insurance)</option>
             </select>
-    
+            
             <select name="plate_type" id="" title="Type of Number Plate" required>
                 <option hidden selected disabled>Type of Number Plate</option>
                 <option value="Any Number">Any Number</option>
                 <option value="Special Number Plate">Special Number Plate(e.g. AAAO1DD) </option>
                 <option value="Personalized/Custom Number">Personalized/Custom Number</option>
             </select>
-    
+            
             <input type="text" name="location" title="Delivery Location" placeholder="Delivery Location" required>
-            <input type="submit" value="Start Processing(# 0)" placeholder="" title="Submit Form">
+            <input type="hidden" name="amount" value="" id="amount" required>
+            <input type="submit" value="Start Processing(₦ 0)" placeholder="" title="Submit Form">
         </form>
     
     </div>

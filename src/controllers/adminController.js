@@ -115,6 +115,9 @@ const checkRoute = (req, res) => {
         case 'Vehicle-Papers':
             res.redirect(`/admin/document/vehicle-papers/${id}`)
             break;
+        case 'Renew-Papers':
+            res.redirect(`/admin/document/renew-papers/${id}`)
+            break;
         case 'Driver-License':
             res.redirect(`/admin/document/driver-license/${id}`)
             break;
@@ -160,6 +163,33 @@ const update_vehicle_papers = async (req, res) => {
     
     req.flash('msg', 'Document Updated successfully')
     res.status(200).redirect(`/admin/document/vehicle-papers/${_id}`)
+}
+
+
+// Renew Papers
+const show_renew_papers = async (req, res) => {
+    const { id } = req.params
+
+    const document = await Document.findOne({ _id: id }).lean()
+                                
+    res.status(200).render('admin/document/show_renew_papers', {
+        layout: 'uploads_view_layout',
+        msg: req.flash('msg'),
+        document: document,
+        user: req.user,
+        completeCheck: document.status !== 'completed'
+    })
+}
+
+const update_renew_papers = async (req, res) => {
+    const _id = req.params.id
+    
+    await Document.updateOne({ _id }, {
+        status: req.body.status
+    })
+    
+    req.flash('msg', 'Document Updated successfully')
+    res.status(200).redirect(`/admin/document/renew-papers/${_id}`)
 }
 
 
@@ -286,6 +316,8 @@ module.exports = {
     checkRoute,
     show_vehicle_papers,
     update_vehicle_papers,
+    show_renew_papers,
+    update_renew_papers,
     show_driver_license,
     update_driver_license,
     show_ownership_change,
