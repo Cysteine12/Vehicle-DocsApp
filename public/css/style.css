@@ -197,6 +197,12 @@ a{
 
 }
 
+.topbar .title {
+    font-weight: bold;
+    font-size: 25px;
+    color: #04AA6D;
+}
+
 .toggle {
     position: relative;
     width: 60px;
