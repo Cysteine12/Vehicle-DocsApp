@@ -1966,6 +1966,7 @@ table td i{
 }
 
 .cart input[type="submit"]:hover {
+    border: 1px solid #fff;
     background: #04AA6D;
     color: #fff;
 }
