@@ -1928,3 +1928,44 @@ table td i{
     color: var(--error);
 }
 
+.cart tbody tr ul {
+    list-style-type: none;
+}
+
+.cart thead th {
+    font-weight: bold;
+}
+
+.cart tbody tr:nth-child(odd) {
+    background: #d4d4d4;
+}
+
+.cart {
+    outline: 0;
+    border: 0;
+    border-spacing: 0;
+}
+
+.cart tbody tr {
+    padding: 15px 5px;
+}
+
+.cart tbody tr td {
+    margin: 0;
+    border: 0;
+    font-size: 14px;
+}
+
+.cart input[type="submit"] {
+    border: 1px solid #04AA6D;
+    border-radius: 5px;
+    padding: 10px 3px;
+    height: auto;
+    background: #fff;
+    color: #04AA6D;
+}
+
+.cart input[type="submit"]:hover {
+    background: #04AA6D;
+    color: #fff;
+}

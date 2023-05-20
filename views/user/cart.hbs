@@ -9,23 +9,20 @@
 
 
         <!--data list-->
-        <h1>My Cart</h1>
         <div class="details">
             <div class="recentOrders mb-5">
+                <h1>My Cart</h1>
+                <br>
                 <div class="cardHeader">
-                    <h2>Checkout</h2>
+                    <h2>Checkout <ion-icon name="cart-outline"></ion-icon></h2>
                 </div>
-                <table>
+                <table class="cart" border="0">
                     <thead>
-                        <tr>
-                            
-                            <td>S/N</td>
-                            <td>Description</td>
-                            <td>Amount</td>
-                            <td></td>
-                            <td></td>
-
-                        </tr>
+                            <th>S/N</th>
+                            <th>Description</th>
+                            <th>Amount</th>
+                            <th></th>
+                            <th></th>
                     </thead>
                     <tbody>
                     {{#if documents}}
@@ -34,17 +31,19 @@
                             <td>{{inc @index "+" 1}}.</td>
                             <td>
                                 <ul>
-                                    <a href="/check/{{docType}}/{{_id}}" class=" link table-row">
-                                        <li>{{docType}}
-                                        {{formatDate updatedAt 'MMMM Do YYYY, h:mm:ss a'}}</li>
+                                    <a href="/check/{{docType}}/{{_id}}" class="table-row">
+                                        <li>{{docType}} </li>
+                                        <li>{{formatDate updatedAt 'MMMM Do YYYY, h:mm:ss a'}}</li>
                                     </a>
                                 </ul>
-                                <form action="/payment/start/{{_id}}" method="POST">
-                                    <input type="submit" value="Proceed to Pay (&#8358;{{data.amount}})" title="Submit">
-                                </form>
                             </td>
                             <td><span class="status paid">&#8358;{{data.amount}}</span></td>
-                            <td><i class="material-icons">delete</i></td>
+                            <td><ion-icon name="trash"></ion-icon></td>
+                            <td>
+                                <form action="/payment/start/{{_id}}" method="POST">
+                                    <input type="submit" value="Pay Now" title="Submit">
+                                </form>
+                            </td>
                         </tr>
                         {{/each}}
                     {{else}}
