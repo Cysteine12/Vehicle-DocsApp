@@ -40,7 +40,7 @@
                     <option value="Truck | Tipper | Trailer">Truck | Tipper | Trailer</option>
                 </select>
         
-                <select name="vehicle_use" id="" title="Use of Vehicle" required>
+                <select name="vehicle_use" id="" title="Use of Vehicle" onchange="if (typeof(this.selectedIndex) != 'undefined') comprehensiveInsurance(this.selectedIndex)" required>
                     <option selected hidden disabled>What is the Vehicle Used For</option>
                     <option value="Uber/Taxify/Ride-Hailing">Uber/Taxify/Ride-Hailing</option>
                     <option value="Private Vehicle">Private Vehicle</option>
@@ -59,13 +59,8 @@
                     <option value="Old Mutual Insurance">Old Mutual Insurance</option>
                 </select>
         
-        
-        
-        
-        
                 <h5>How much is the value of the vehicle?</h5>
-                <input type="text" name="vehicle_price" placeholder="Price of Vehicle" value="" title="Vehicle Price" required>
-        
+                <input type="number" name="vehicle_price" id="vehicle_price" placeholder="Price of Vehicle" value="" title="Vehicle Price" oninput="comprehensiveInsurance()" required>
         
                 <div class="formcard_upload">
                     <h3>Attach Three Required Documents</h2>
@@ -74,17 +69,12 @@
                         <li>Your Driver's License</li>
                         <li>Your Passport Photograph</li>
                     </ul>
-
                 </div>
         
                 <input type="file" name="photo" class="filepond pond" title="Upload" required>
         
-        
-        
                 <input type="text" name="location" title="Delivery Location" placeholder="Delivery Location" required>
-
-                <input type="hidden" name="amount" value="5000" required/>
-        
+                <input type="hidden" name="amount" value="" id="amount" required>
                 <input type="submit" value="Start Processing(# 0)" placeholder="" title="Submit Form">
             </form>
         

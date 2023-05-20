@@ -7,27 +7,65 @@
         <!--topbar-->
         {{> _topbar}}
 
-        <!--Form-->
-        <div class="formcard">
-            <h1>My Cart</h1>
-            <br>
-            {{#if documents}}
-                {{#each documents}}
-                    <ul>
-                        <a href="/check/{{docType}}/{{_id}}" class=" link table-row">
-                            <li>{{_id}} - {{docType}} - 
-                            {{formatDate updatedAt 'MMMM Do YYYY, h:mm:ss a'}}</li>
-                        </a>
-                    </ul>
-                    <form action="/payment/start/{{_id}}" method="POST">
-                        <input type="submit" value="Proceed to Pay (&#8358;{{data.amount}})" title="Submit">
-                    </form>
-                {{/each}}
-            {{else}}
-                No order has been placed yet.
-            {{/if}}
-        </div>
 
+        <!--data list-->
+        <h1>My Cart</h1>
+        <div class="details">
+            <div class="recentOrders mb-5">
+                <div class="cardHeader">
+                    <h2>Checkout</h2>
+                </div>
+                <table>
+                    <thead>
+                        <tr>
+                            
+                            <td>S/N</td>
+                            <td>Description</td>
+                            <td>Amount</td>
+                            <td></td>
+                            <td></td>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {{#if documents}}
+                        {{#each documents}}
+                        <tr>
+                            <td>{{inc @index "+" 1}}.</td>
+                            <td>
+                                <ul>
+                                    <a href="/check/{{docType}}/{{_id}}" class=" link table-row">
+                                        <li>{{docType}}
+                                        {{formatDate updatedAt 'MMMM Do YYYY, h:mm:ss a'}}</li>
+                                    </a>
+                                </ul>
+                                <form action="/payment/start/{{_id}}" method="POST">
+                                    <input type="submit" value="Proceed to Pay (&#8358;{{data.amount}})" title="Submit">
+                                </form>
+                            </td>
+                            <td><span class="status paid">&#8358;{{data.amount}}</span></td>
+                            <td><i class="material-icons">delete</i></td>
+                        </tr>
+                        {{/each}}
+                    {{else}}
+                        No order has been placed yet.
+                    {{/if}}
+
+                    </tbody>
+                </table>
+            </div>
+
+            <div>
+                <div class="ftn">
+                    <button>Add More Items</button>
+                </div>
+                <br>
+
+                <div class="mb-5">
+                    <button>Proceed to Pay</button>
+                </div>
+            </div>
+        </div>
     </div>
 
 </div>

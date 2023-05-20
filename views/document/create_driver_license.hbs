@@ -37,10 +37,10 @@
                 <input type="text" name="license_no" placeholder="Enter Drivers License Number (L/NO) e.g. FKJ123" required>
                 <input type="text" name="license_name" placeholder="Enter Name on the License" required>
         
-                <select name="license_type" id="" title="Select cars" required>
+                <select name="license_type" id="" title="Select cars" onchange="if (typeof(this.selectedIndex) != 'undefined') driverLicense(this.selectedIndex)" required>
                     <option selected hidden disabled> --Choose Required Option-- </option>
                     <option value="National License - 3 Years Validity">National License - 3 Years Validity</option>
-                    <option value=National License - 5 Years Validity"">National License - 5 Years Validity</option>
+                    <option value="National License - 5 Years Validity">National License - 5 Years Validity</option>
                     <option value="International Driver's License - 1 Year Validity">International Driver's License - 1 Year Validity</option>
         
                 </select>
@@ -58,6 +58,7 @@
                 <input type="file" name="photo" class="filepond pond" title="Upload" required>
         
                 <input type="text" name="location" title="Delivery Location" placeholder="Delivery Location" required>
+                <input type="hidden" name="amount" value="" id="amount" required>
                 <input type="submit" value="Start Processing(# 0)" placeholder="" title="Submit Form">
             </form>
         

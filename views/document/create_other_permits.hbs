@@ -39,7 +39,7 @@
                     <option value="Truck | Tipper | Trailer">Truck | Tipper | Trailer</option>
                 </select>
         
-                <select name="permit_category" id="" title="Other Vehicle Permit" required>
+                <select name="permit_category" id="" title="Other Vehicle Permit" onchange="if (typeof(this.selectedIndex) != 'undefined') otherPermits(this.selectedIndex)" required>
                     <option selected hidden disabled>Other Vehicle Permit</option>
                     <option value="Rider's Card (Motorcycle)">Rider's Card (Motorcycle)</option>
                     <option value="Federal MidYear Truck Permit">Federal MidYear Truck Permit</option>
@@ -53,7 +53,7 @@
                 </select>
         
                 <input type="text" name="location" title="Delivery Location" placeholder="Delivery Location" required>
-        
+                <input type="hidden" name="amount" value="" id="amount" required>
                 <input type="submit" value="Start Processing(# 0)" placeholder="" title="Submit Form">
             </form>
         

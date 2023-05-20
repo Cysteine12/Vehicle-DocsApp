@@ -1866,3 +1866,65 @@ footer h3{
                 .capitalize {
                     text-transform: uppercase;
                 }
+
+/*Additional CSS*/
+.mini_footer{
+    border-top: 1px solid;
+    
+    color: var(--black1);
+    display: flex;
+    position: absolute;
+    justify-content: space-between;
+    align-items: center;
+    align-content: center;
+    bottom: 0px;
+    width: 100%;
+    font-size: 13px;
+    padding: 12px;
+    margin-top: 5px;
+}
+
+
+.mini_footer img{
+    width: 30px;
+    border-radius: 50px;
+}
+
+.mini_footer_ul{
+    align-items: center;
+}
+.mini_footer_ul ul{
+    display: flex;
+    gap: 30px;
+    list-style: none;
+    
+}
+
+.mini_footer_ul ul li{
+    font-size: 14px;
+    width: max-content;
+    color: white;
+    list-style: none;
+}
+
+.mini_footer_ul ul li a{
+    color: var(--black1);
+    text-decoration: none;
+}
+
+.ftn button {
+    background-color: transparent;
+    color: var(--light-green);
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: 2px solid var(--light-green);
+    cursor: pointer;
+    width: 100%;
+    opacity: 0.9;
+    font-weight: 800;
+}
+
+table td i{
+    color: var(--error);
+}
+
