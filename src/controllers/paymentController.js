@@ -10,7 +10,7 @@ const create_payment = async (req, res) => {
         paymentReference: null 
     }).populate('vehicleId').sort({ createdAt: -1 }).lean()
 
-    res.status(200).render('user/cart', {
+    res.status(200).render('payment/cart', {
         user: req.user,
         msg: req.flash('msg'),
         documents: documents
@@ -43,11 +43,16 @@ const start_payment = async (req, res) => {
 
 const record_payment = async (req, res) => {
     try {
-        const response = await paymentService.recordPayment(req.query).lean()
+        const response = await paymentService.recordPayment(req.query)
+
+        await Document.updateOne({ paymentReference: response.reference }, {
+            $set: { 'data.status': response.status }
+        })
         
-        res.status(201).send({ 
+        res.status(200).render('payment/view', {
+            user: req.user,
             status: 'Success', 
-            data: response 
+            data: response
         })
     } catch (err) {
         res.status(500).send({ 
@@ -59,7 +64,7 @@ const record_payment = async (req, res) => {
 
 const get_payment = async (req, res) => {
     try {
-        const response = await paymentService.getPayment(req.body).lean()
+        const response = await paymentService.getPayment(req.body)
         
         res.status(201).send({ 
             status: 'Success', 
