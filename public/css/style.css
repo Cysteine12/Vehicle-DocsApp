@@ -1967,6 +1967,10 @@ table td i{
     font-size: 20px;
 }
 
+.cart tbody tr td li:nth-child(even) {
+    font-size: 12px; 
+}
+
 .cart input[type="submit"] {
     border: 1px solid #04AA6D;
     border-radius: 5px;
