@@ -51,7 +51,7 @@
 
             <div class="card">
                 <div>
-                    <div class="numbers">NGN200,000</div>
+                    <div class="numbers">NGN0</div>
                     <div class="cardName">Amount Spent</div>
                 </div>
                 <div class="iconBx">
@@ -61,7 +61,7 @@
 
             <div class="card">
                 <div>
-                    <div class="numbers">NGN20,850</div>
+                    <div class="numbers">NGN0</div>
                     <div class="cardName">Commissions Earned </div>
                 </div>
                 <div class="iconBx">
@@ -91,7 +91,7 @@
                             <div class="table-cell">{{inc @index "+" 1}}.</div>
                             <div class="table-cell">{{docType}}</div>
                             <div class="table-cell">{{status}}</div>
-                            <div class="table-cell">{{formatDate updatedAt 'MMMM Do YYYY, h:mm:ss a'}}</div>
+                            <div class="table-cell">{{formatDate updatedAt 'MMMM Do, h:mma'}}</div>
                         </a>
                         {{/each}}
                     </div>

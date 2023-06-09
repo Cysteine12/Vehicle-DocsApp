@@ -36,9 +36,10 @@
             <div class="recentOrders">
 
                 <form action="/document/renew-papers" method="POST">
+                    <h3>Attach The Required Documents.</h3>
+                    <input type="file" name="photo" class="filepond pond" title="Upload" required>
                     <h3>Select Vehicle</h3>
                     <select name="vehicle_type" id="" title="Select cars" required>
-                        
                         <option value="Saloon Car-Mini(1.4-1.9L)">Saloon Car-Mini(1.4-1.9L) e.p. Picanto, Corolla, Almera, Civic</option>
                         <option value="Saloon Car-Maxi(2.0-2.6L)">Saloon Car-Maxi(2.0-2.6L) e.g. Camry, Benz, Accord, Lexus & Others</option>
                         <option value="SUV | Jeep | Bus | Pick-Up | Crossover">SUV | Jeep | Bus | Pick-Up | Crossover</option>
@@ -52,11 +53,11 @@
                         <tr>
                             <td><input type="checkbox" name="vehicle_license" id="" title="Add" onclick="renewPapers(event, 'vehicle_license')"></td>
                             <td>Vehicle License</td>
-                            <td class="counter">
-                                <button type="button" onclick="decrement('demoInput1'); renewPapers(event, 'vehicle_license', 'sub')"></button>
+                            {{!-- <td class="counter">
+                                <button type="button" onclick="decrement('demoInput1'); renewPapers(event, 'vehicle_license', 'sub')">+</button>
                                 <input name="vehicle_license_no" id="demoInput1" value="0" type="number" min="0" max="100" title="counter" onchange="renewPapers(event, 'vehicle_license', 'input_box')" oninput="renewPapers(event, 'vehicle_license', 'input_box')">
-                                <button type="button" onclick="increment('demoInput1'); renewPapers(event, 'vehicle_license', 'add')"></button>
-                            </td>
+                                <button type="button" onclick="increment('demoInput1'); renewPapers(event, 'vehicle_license', 'add')">-</button>
+                            </td> --}}
                         </tr>
                     
                         <tr>
@@ -74,11 +75,11 @@
                         <tr>
                             <td><input type="checkbox" name="hackney_permit" id="" title="Add" onclick="renewPapers(event, 'hackney_permit')"></td>
                             <td>Hackney Permit</td>
-                            <td class="counter">
+                            {{!-- <td class="counter">
                                 <button type="button" onclick="decrement('demoInput2')"></button>
                                 <input name="hackney_permit_no" id="demoInput2" value="1" type="number" min="0" max="100" title="counter">
                                 <button type="button" onclick="increment('demoInput2')"></button>
-                            </td>
+                            </td> --}}
                         </tr>
                     
                         <tr>
@@ -125,6 +126,7 @@
                     </table>
 
                     <input type="text" name="location" title="Delivery Location" placeholder="Delivery Location" required>
+                    <input type="number" name="phone" placeholder="Phone Number to register Vehicle" required>
                     <input type="hidden" name="amount" value="" id="amount" required>
                     <input type="submit" value="Start Processing(# 0)" placeholder="" title="Submit Form">
                 </form>

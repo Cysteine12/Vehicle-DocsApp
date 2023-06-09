@@ -8,7 +8,7 @@ const paymentService = {
             try {
                 const form = {
                     email: data.email,
-                    amount: data.amount *= 100, 
+                    amount: data.amount * 100, 
                     metadata: {
                         full_name: data.full_name
                     }
@@ -41,9 +41,10 @@ const paymentService = {
                     }
                     const response = JSON.parse(body)
 
-                    const { reference, amount, status } = response.data
+                    const { reference, status } = response.data
                     const {email} = response.data.customer
                     const {full_name} = response.data.metadata
+                    const amount = response.data.amount / 100
                     const newPayment = { full_name, email, amount, reference, status }
                     const payment = Payment.create(newPayment)
 

@@ -121,10 +121,13 @@ const store_renew_papers = async (req, res) => {
             truck_trailer_permit: req.body.truck_trailer_permit,
             mid_year_permit: req.body.mid_year_permit,
             location: req.body.location,
+            phone: req.body.phone,
             amount: req.body.amount
         },
         status: 'submitted'
     })
+    photoService.savePhoto(document, req.body.photo)
+
     const data = await document.save()
     
     req.flash('msg', 'Document Uploaded successfully')
@@ -135,6 +138,8 @@ const show_renew_papers = async (req, res) => {
     const { id } = req.params
 
     const document = await Document.findOne({ _id: id }).lean()
+
+    document.photoPath = `data:${document.photoType};charset=utf-8;base64,${document.photo.toString('base64')}`
      
     res.status(200).render('document/show_renew_papers', {
         msg: req.flash('msg'),
