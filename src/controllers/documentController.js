@@ -1,6 +1,7 @@
 const Vehicle = require('../models/Vehicle')
 const Document = require('../models/Document')
 const photoService = require('../services/photoService')
+const fileService = require('../services/fileService')
 
 
 
@@ -52,6 +53,7 @@ const store_vehicle_papers = async (req, res) => {
         status: 'submitted'
     })
     photoService.savePhoto(document, req.body.photo)
+    fileService.uploadFile(req.body.photo)
 
     const data = await document.save()
     
