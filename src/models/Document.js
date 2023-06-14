@@ -1,5 +1,4 @@
 const { Schema, model } = require('mongoose')
-const Payment = require('./Payment')
 
 const documentSchema = new Schema({
     userId: {
@@ -14,12 +13,8 @@ const documentSchema = new Schema({
         type: String,
         required: true
     },
-    photo: {
-        type: Buffer,
-        required: false
-    },
-    photoType: {
-        type: String,
+    fileId: {
+        type: Array,
         required: false
     },
     data: {

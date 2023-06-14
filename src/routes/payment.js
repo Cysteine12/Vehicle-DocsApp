@@ -29,7 +29,7 @@ router.get(
 )
 
 router.get(
-    '/get', 
+    '/get/:refrence', 
     ensureAuth,
     PaymentController.get_payment
 )

@@ -8,10 +8,11 @@ document.addEventListener('DOMContentLoaded', () => {
     )
 
     FilePond.setOptions({
-        stylePanelAspectRatio: 300/200,
         imageResizeTargetWidth: 200,
         imageResizeTargetHeight: 300,
-        imagePreviewHeight: 300
+        imagePreviewMaxHeight: 1000,
+        allowMultiple: true,
+        maxFiles: 5
     })
 
     FilePond.parse(document.body)

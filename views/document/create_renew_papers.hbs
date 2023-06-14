@@ -36,8 +36,10 @@
             <div class="recentOrders">
 
                 <form action="/document/renew-papers" method="POST">
+                
                     <h3>Attach The Required Documents.</h3>
-                    <input type="file" name="photo" class="filepond pond" title="Upload" required>
+                    <input type="file" name="files" class="filepond pond" title="Upload" multiple required>
+
                     <h3>Select Vehicle</h3>
                     <select name="vehicle_type" id="" title="Select cars" required>
                         <option value="Saloon Car-Mini(1.4-1.9L)">Saloon Car-Mini(1.4-1.9L) e.p. Picanto, Corolla, Almera, Civic</option>

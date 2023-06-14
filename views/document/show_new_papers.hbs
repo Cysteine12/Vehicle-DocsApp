@@ -81,7 +81,10 @@
                             <td>
                                 &#8358;{{document.data.amount}}
                                 {{#if document.paymentReference}}
-                                    {{document.paymentReference}}
+                                    Payment Completed
+                                    <a href="/payment/get/{{document.paymentReference}}">
+                                        <button class="success btn-outline" type="submit">View Transaction</button>
+                                    </a>
                                 {{else}}
                                     Payment Pending
                                     <a href="/payment/cart">
@@ -96,7 +99,9 @@
                 <div>
                     <div>Uploads:</div>
                     <div>
-                        <img src="{{document.photoPath}}" alt="Vehicle picture" height="400" width="100%">
+                        {{#each document.fileId}}
+                            <img src="https://drive.google.com/uc?export=views&id={{this}}" alt="Vehicle picture" height="400" width="100%">
+                        {{/each}}
                     </div>
                 </div>
                 <br>

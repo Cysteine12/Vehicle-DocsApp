@@ -3,18 +3,25 @@ const Document = require('../models/Document')
 
 
 const create_payment = async (req, res) => {
-    const userId = req.user._id
+    try {
+        const userId = req.user._id
+        
+        const documents = await Document.find({ 
+            userId: userId,
+            paymentReference: null 
+        }).populate('vehicleId').sort({ createdAt: -1 }).lean()
     
-    const documents = await Document.find({ 
-        userId: userId,
-        paymentReference: null 
-    }).populate('vehicleId').sort({ createdAt: -1 }).lean()
-
-    res.status(200).render('payment/cart', {
-        user: req.user,
-        msg: req.flash('msg'),
-        documents: documents
-    })
+        res.status(200).render('payment/cart', {
+            user: req.user,
+            msg: req.flash('msg'),
+            documents: documents
+        })
+    } catch (err) {
+        res.status(500).send({ 
+            status: 'Failed', 
+            msg: err.message 
+        })
+    }
 }
 
 const start_payment = async (req, res) => {
@@ -51,7 +58,7 @@ const record_payment = async (req, res) => {
         
         res.status(200).render('payment/view', {
             user: req.user,
-            status: 'Success', 
+            status: 'Payment Successful', 
             data: response
         })
     } catch (err) {
@@ -64,11 +71,12 @@ const record_payment = async (req, res) => {
 
 const get_payment = async (req, res) => {
     try {
-        const response = await paymentService.getPayment(req.body)
+        const response = await paymentService.getPayment(req.params)
         
-        res.status(201).send({ 
-            status: 'Success', 
-            data: response 
+        res.status(200).render('payment/view', {
+            user: req.user,
+            status: 'Payment Successful', 
+            data: response
         })
     } catch (err) {
         res.status(500).send({ 

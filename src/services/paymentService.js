@@ -57,10 +57,10 @@ const paymentService = {
         })
     },
 
-    getPayment: (body) => {
+    getPayment: (data) => {
         return new Promise(async (resolve, reject) => {
             try {
-                const reference = body.reference
+                const reference = data.reference
                 const transaction = Payment.findOne({ reference })
 
                 return resolve(transaction)

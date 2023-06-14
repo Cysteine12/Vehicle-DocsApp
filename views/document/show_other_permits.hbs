@@ -57,7 +57,10 @@
                             <td>
                                 &#8358;{{document.data.amount}}
                                 {{#if document.paymentReference}}
-                                    {{document.paymentReference}}
+                                    Payment Completed
+                                    <a href="/payment/get/{{document.paymentReference}}">
+                                        <button class="success btn-outline" type="submit">View Transaction</button>
+                                    </a>
                                 {{else}}
                                     Payment Pending
                                     <a href="/payment/cart">
