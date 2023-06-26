@@ -30,8 +30,8 @@ const store_vehicle_papers = async (req, res) => {
             category: req.body.category,
             brand: req.body.brand,
             model: req.body.model,
-            plateNo: req.body.plateNo,
-            year: req.body.year,
+            plateNo: 'Nil',
+            year: 'Nil',
             engineNo: req.body.engineNo,
             chassisNo: req.body.chassisNo,
             color: req.body.color,
@@ -45,7 +45,6 @@ const store_vehicle_papers = async (req, res) => {
             docType: 'Vehicle-Papers',
             data: {
                 doc_name: req.body.doc_name,
-                dob: req.body.dob,
                 address: req.body.address,
                 phone1: req.body.phone1,
                 phone2: req.body.phone2,

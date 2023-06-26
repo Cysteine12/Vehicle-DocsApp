@@ -1,13 +1,13 @@
-// Order of object is: motorcycle:1 salon_midi:2 salon_maxi:3 suv_jeep:4 coaster_bus:5 truck:6
+// Order of object is: motorcycle:1 salon_mini:2 salon_maxi:3 suv_jeep:4 coaster_bus:5 truck:6
 // Order of array is: 
 // private_3rd_party_insurance | private_no_insurance | commercial_3rd_party_insurance | commercial_no_insurance
 const new_papers = {
     1: [ 69500, 59500, 72700, 62700 ],
-    2: [ 63000, 53000, 73400, 63400 ],
-    3: [ 64000, 54000, 74400, 64400 ],
-    4: [ 67000, 57000, 80500, 70500 ],
-    5: [ 80500, 70500, 95000, 90500 ],
-    6: [ 174500, 164500, 174500, 154500 ],
+    2: [ 62000, 53000, 66000, 63400, 300000 ],
+    3: [ 63000, 54000, 67000, 64400, 310000 ],
+    4: [ 65000, 57000, 70000, 70500, 310000 ],
+    5: [ 80500, 70500, 80000, 90500 ],
+    6: [ 174500, 164500, 80000, 154500 ],
 }
 
 // increment on vehicle_license with 3400

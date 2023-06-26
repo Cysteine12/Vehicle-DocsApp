@@ -27,11 +27,49 @@
                 </p>
                 
                 <p><strong>TIMELINE</strong> <br>
-                    With next day delivery, new registration takes 48 hours (but 96 hours with a tint permit).</p>
+                    Delivery takes 5 working days</p>
             </div>
         
             <form action="/document/vehicle-papers" method="POST">
                 <h3>Vehicle Details</h3>
+                
+                <select name="state" title="Select State" required>
+                    <option selected disabled hidden>Select State</option>
+                    <option value="Abia">Abia</option>
+                    <option value="Adamawa">Adamawa</option>
+                    <option value="Akwa-Akwa">Abia</option>
+                    <option value="Anambra">Anambra</option>
+                    <option value="Bauchi">Bauchi</option>
+                    <option value="Bayelsa">Bayelsa</option>
+                    <option value="Benin">Benin</option>
+                    <option value="Borno">Borno</option>
+                    <option value="Cross Cross">Abia</option>
+                    <option value="Delta">Delta</option>
+                    <option value="Ekiti">Ekiti</option>
+                    <option value="Enugu">Enugu</option>
+                    <option value="Gombe">Gombe</option>
+                    <option value="Imo">Imo</option> 
+                    <option value="Jigawa">Jigawa</option>
+                    <option value="Kaduna">Kaduna</option>
+                    <option value="Kano">Kano</option>
+                    <option value="Kebbi">Kebbi</option>
+                    <option value="Kogi">Kogi</option>
+                    <option value="Kwara">Kwara</option>
+                    <option value="Lagos">Lagos</option>
+                    <option value="Nasarawa">Nasarawa</option>
+                    <option value="Niger">Niger</option>
+                    <option value="Ogun">Ogun</option>
+                    <option value="Ondo">Ondo</option>
+                    <option value="Osun">Osun</option>
+                    <option value="Oyo">Oyo</option>
+                    <option value="Plateau">Plateau</option>
+                    <option value="Rivers">Rivers</option>
+                    <option value="Sokoto">Sokoto</option>
+                    <option value="Taraba">Taraba</option>
+                    <option value="Zamfara">Zamfara</option>
+                    <option value="FCT">FCT</option>
+                </select>
+
                 <select name="category" title="Select cars" onchange="if (typeof(this.selectedIndex) != 'undefined') newPapers(this.selectedIndex)" required>
                     <option selected disabled hidden>Select Category of Vehicle</option>
                     <option value="Motorcycle">Motorcycle | Tricycle</option>
@@ -41,44 +79,40 @@
                     <option value="Coaster Bus">Coaster Bus</span></option>
                     <option value="Truck | Tipper | Trailer">Truck | Tipper | Trailer</option>
                 </select>
+                
+                <input type="text" name="doc_name" placeholder="Name to be on Vehicle Documents" required>
+                <input type="text" name="address" placeholder="Contact Address" required>
+                
                 <input type="text" name="brand" placeholder="Vehicle Brand e.g. Toyota" value="" title="Vehicle Brand" required>
                 <input type="text" name="model" placeholder="Vehicle Model e.g. Corolla" value="" title="Vehicle Model" required>
-                <input type="text" name="year" placeholder="Year of Make" value="" title="Year of Make" required>
-                <input type="text" name="plateNo" placeholder="Plate Number" value="" title="Plate Number" required>
+                {{!-- <input type="text" name="year" placeholder="Year of Make" value="" title="Year of Make" required> --}}
+                {{!-- <input type="text" name="plateNo" placeholder="Plate Number" value="" title="Plate Number" required> --}}
                 <input type="text" name="engineNo" placeholder="Engine Number" value="" title="Engine Number" required>
                 <input type="text" name="chassisNo" placeholder="Chassis Number" value="" title="Name" required>
                 <input type="text" name="color" placeholder="Select Color" value="" title="Color" required>
-                <br><br>
-                <h3>Personal Information & Documents</h3>
-                <span>Full name | Date of birth | Address</span>
-                <input type="text" name="my_name" placeholder="Full Name" title="Your Name" value="{{user.name}}" required>
-                <input type="date" name="dob" placeholder="Date of birth" required>
-                <input type="text" name="address" placeholder="Contact Address" required>
-        
+                <input type="number" name="phone1" placeholder="Phone Number to register Vehicle" required>
+                <input type="number" name="phone2" placeholder="Second Phone Number(required)" required>
+                <input type="text" name="location" title="Delivery Location" placeholder="Delivery Location" required>
+
+                {{!-- <input type="text" name="my_name" placeholder="Full Name" title="Your Name" value="{{user.name}}" required> --}}
+                {{!-- <input type="date" name="dob" placeholder="Date of birth" required>         --}}
         
                 <div class="formcard_upload">
-                <h3>Attach Two Required Documents.</h3>
-                <ul>
-                    <li>Two pages of the Original Custom Papers or Original Local Receipt</li>
-                    <li>A Valid ID-Card</li>
-                </ul>
-
-                
+                    <h3>Attach Two Required Documents.</h3>
+                    <ul>
+                        <li>Two pages of Custom Paper / Receipt</li>
+                        <li>A Valid ID-Card</li>
+                    </ul>
                 </div>
                 <input type="file" name="files" class="filepond pond" title="Upload" multiple required>
         
-                <h3>Preferences</h3>
-        
-                <input type="text" name="doc_name" placeholder="Name to be on Vehicle Documents" required>
-                <input type="number" name="phone1" placeholder="Phone Number to register Vehicle" required>
-                <input type="number" name="phone2" placeholder="Second Phone Number(required)" required>
-                
                 <select name="reg_type" id="" title="Registration Type" onchange="if (typeof(this.selectedIndex) != 'undefined') newPapers(null, this.selectedIndex-1)" required>
                     <option hidden selected disabled>Registration Type</option>
                     <option value="Private Vehicle(With 3rd Party Insurance)">Private Vehicle(With 3rd Party Insurance)</option>
                     <option value="Private Vehicle(No Insurance)">Private Vehicle(No Insurance) </option>
                     <option value="Commercial Vehicle(With 3rd Party Insurance)">Commercial Vehicle(With 3rd Party Insurance)</option>
                     <option value="Commercial Vehicle(No Insurance)">Commercial Vehicle(No Insurance)</option>
+                    <option value="Customized Plate(With 3rd Party Insurance)">Customized Plate(With 3rd Party Insurance)</option>
                 </select>
                 
                 <select name="plate_type" id="" title="Type of Number Plate" required>
@@ -88,7 +122,6 @@
                     <option value="Personalized/Custom Number">Personalized/Custom Number</option>
                 </select>
                 
-                <input type="text" name="location" title="Delivery Location" placeholder="Delivery Location" required>
                 <input type="hidden" name="amount" value="" id="amount" required>
                 <input type="submit" value="Start Processing(₦ 0)" placeholder="" title="Submit Form">
             </form>
