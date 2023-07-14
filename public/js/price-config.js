@@ -1,13 +1,21 @@
 // Order of object is: motorcycle:1 salon_mini:2 salon_maxi:3 suv_jeep:4 coaster_bus:5 truck:6
 // Order of array is: 
 // private_3rd_party_insurance | private_no_insurance | commercial_3rd_party_insurance | commercial_no_insurance
+// const new_papers = {
+//     1: [ 69500, 59500, 72700, 62700 ],
+//     2: [ 62000, 53000, 66000, 63400, 300000 ],
+//     3: [ 63000, 54000, 67000, 64400, 310000 ],
+//     4: [ 65000, 57000, 70000, 70500, 310000 ],
+//     5: [ 80500, 70500, 80000, 90500 ],
+//     6: [ 174500, 164500, 80000, 154500 ],
+// }
 const new_papers = {
-    1: [ 69500, 59500, 72700, 62700 ],
-    2: [ 62000, 53000, 66000, 63400, 300000 ],
-    3: [ 63000, 54000, 67000, 64400, 310000 ],
-    4: [ 65000, 57000, 70000, 70500, 310000 ],
-    5: [ 80500, 70500, 80000, 90500 ],
-    6: [ 174500, 164500, 80000, 154500 ],
+    1: [ 69500, 72700, null ],
+    2: [ 62000, 66000, 300000 ],
+    3: [ 63000, 67000, 310000 ],
+    4: [ 65000, 70000, 310000 ],
+    5: [ 80500, 80000, null],
+    6: [ 174500, 80000, null],
 }
 
 // increment on vehicle_license with 3400
@@ -61,11 +69,24 @@ const other_permits = {
     8: 33000,
     9: 80000
 }
+
+
+
+
+
+
+
+
+
+
+
+
+                                           
 let total_price = 0
 let x1 = 0
 let x2 = 0
 
-// ==================================================================================//
+// ============================================================================//
 
 const mountTotal = (total) => {
     let x = document.querySelector('input[type=submit]')
@@ -78,9 +99,10 @@ const mountTotal = (total) => {
 // NEW VEHICLE PAPERS
 
 const newPapers = (v1, v2) =>  {
+    console.log("v1 = " + v1 + "v2 = " + v2)
     if (v1) x1 = v1
     if (v2) x2 = v2
-    total_price = new_papers[v1 || x1][v2 || x2]
+    total_price = new_papers[x1 || v1][x2 || v2]
     mountTotal(total_price)
 }
 

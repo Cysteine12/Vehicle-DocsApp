@@ -79,6 +79,21 @@
                     <option value="Coaster Bus">Coaster Bus</span></option>
                     <option value="Truck | Tipper | Trailer">Truck | Tipper | Trailer</option>
                 </select>
+
+                {{!-- <select name="reg_type" id="" title="Registration Type" onchange="if (typeof(this.selectedIndex) != 'undefined') newPapers(null, this.selectedIndex-1)" required>
+                    <option hidden selected disabled>Registration Type</option>
+                    <option value="Private Vehicle(With 3rd Party Insurance)">Private Vehicle(With 3rd Party Insurance)</option>
+                    <option value="Private Vehicle(No Insurance)">Private Vehicle(No Insurance) </option>
+                    <option value="Commercial Vehicle(With 3rd Party Insurance)">Commercial Vehicle(With 3rd Party Insurance)</option>
+                    <option value="Commercial Vehicle(No Insurance)">Commercial Vehicle(No Insurance)</option>
+                </select> --}}
+
+                <select name="reg_type" id="" title="Registration Type" onchange="if (typeof(this.selectedIndex) != 'undefined') newPapers(null, this.selectedIndex-1)" required>
+                    <option hidden selected disabled>Registration Type</option>
+                    <option value="Private Vehicle(With 3rd Party Insurance)">Private Vehicle(With 3rd Party Insurance) [62,000]</option>
+                    <option value="Commercial Vehicle(With 3rd Party Insurance)">Commercial Vehicle(With 3rd Party Insurance) [66,000]</option>
+                    <option value="Customized Plate(With 3rd Party Insurance)">Customized Plate(With 3rd Party Insurance) [300,000]</option>
+                </select>
                 
                 <input type="text" name="doc_name" placeholder="Name to be on Vehicle Documents" required>
                 <input type="text" name="address" placeholder="Contact Address" required>
@@ -105,15 +120,6 @@
                     </ul>
                 </div>
                 <input type="file" name="files" class="filepond pond" title="Upload" multiple required>
-        
-                <select name="reg_type" id="" title="Registration Type" onchange="if (typeof(this.selectedIndex) != 'undefined') newPapers(null, this.selectedIndex-1)" required>
-                    <option hidden selected disabled>Registration Type</option>
-                    <option value="Private Vehicle(With 3rd Party Insurance)">Private Vehicle(With 3rd Party Insurance)</option>
-                    <option value="Private Vehicle(No Insurance)">Private Vehicle(No Insurance) </option>
-                    <option value="Commercial Vehicle(With 3rd Party Insurance)">Commercial Vehicle(With 3rd Party Insurance)</option>
-                    <option value="Commercial Vehicle(No Insurance)">Commercial Vehicle(No Insurance)</option>
-                    <option value="Customized Plate(With 3rd Party Insurance)">Customized Plate(With 3rd Party Insurance)</option>
-                </select>
                 
                 <select name="plate_type" id="" title="Type of Number Plate" required>
                     <option hidden selected disabled>Type of Number Plate</option>
