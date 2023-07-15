@@ -33,6 +33,27 @@ const renew_papers = {
     mid_year_permit: 4700
 }
 
+//Order of object: 1: Salon Car Mini(1.4 - 1.7) e.g Picanto Corolla | 2: Salon Car Mini(2.0 - 2.6) e.g Camry, Benz, Accord | 3: SUV,JEEP,BUS,PICKUP |4: Truck Tipper/Trailer |5: Coaster Bus
+
+//Order of array Vehicle license | Road Worthiness | Insurance | Hackney Permit | Local Governmanet Permit | Heavy Duty | Truck and Trailer Permit
+
+const private_vehicle = {
+    1: [ 2500, 4500, 15000, 2300, 15000, null, null ],
+    2: [ 3000, 5000, 15000, 2500, 15000, null, null ],
+    3: [ 4000, 6000, 15000, null, 15000, null, null ],
+    4: [ 6000, null, null, 4500, 20000, 5000, 50000 ],
+    5: [ 4000, 6500, 15000, 4000, 15000, null, null]
+}
+
+const commercial_vehicle = {
+    1: [ 2500, 4000, 20000, 2300, 15000, null, null ],
+    2: [ 3000, 4500, 20000, 2500, 15000,  null, null ],
+    3: [ 4000, 5500, 20000, null, 15000,  null, null ],
+    4: [ 6000, null, null, 4500, 20000, 5000, 50000 ],
+    5: [ 4000, 6000, 20000, 4000, 15000, null, null]
+}
+
+
 // Order of array is: private | commercial 
 const change_of_ownership = {
     change_of_ownership: [ 86000, 95900 ],
