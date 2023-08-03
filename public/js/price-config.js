@@ -1,58 +1,27 @@
-// Order of object is: motorcycle:1 salon_mini:2 salon_maxi:3 suv_jeep:4 coaster_bus:5 truck:6
+// Order of object is: salon_mini:1 salon_maxi:2 suv_jeep:3 coaster_bus:4 truck:5
 // Order of array is: 
-// private_3rd_party_insurance | private_no_insurance | commercial_3rd_party_insurance | commercial_no_insurance
-// const new_papers = {
-//     1: [ 69500, 59500, 72700, 62700 ],
-//     2: [ 62000, 53000, 66000, 63400, 300000 ],
-//     3: [ 63000, 54000, 67000, 64400, 310000 ],
-//     4: [ 65000, 57000, 70000, 70500, 310000 ],
-//     5: [ 80500, 70500, 80000, 90500 ],
-//     6: [ 174500, 164500, 80000, 154500 ],
-// }
+// private_3rd_party_insurance | commercial_3rd_party_insurance | customized_3rd_party_insurance
 const new_papers = {
-    1: [ 69500, 72700, null ],
-    2: [ 62000, 66000, 300000 ],
-    3: [ 63000, 67000, 310000 ],
-    4: [ 65000, 70000, 310000 ],
-    5: [ 80500, 80000, null],
-    6: [ 174500, 80000, null],
+    1: [ 62000, 66000, 300000 ],
+    2: [ 63000, 67000, 310000 ],
+    3: [ 65000, 70000, 310000 ],
+    4: [ null, 80000, null],
+    5: [ null, 84000, null]
 }
 
-// increment on vehicle_license with 3400
+
+// order of array is: salon_mini:1 salon_maxi:2 suv_jeep:3 coaster_bus:4 truck:5
 const renew_papers = {
-    vehicle_license: 3400,
-    road_worthiness: 5200,
-    third_party_insurance: 20000,
-    hackney_permit: 4900,
-    heavy_duty_permit: 9750,
-    local_government_permit_nigeria: 23500,
-    local_government_permit_southwest: 17500,
-    state_carriage_permit: 13500,
-    og_hut: 4000,
-    truck_trailer_permit: 6000,
-    mid_year_permit: 4700
+    vehicle_license: [ 2500, 3000, 4000, 4000, 6000 ],
+    road_worthiness_private: [ 4500, 5000, 6000, 6500, null ],
+    road_worthiness_commercial: [ 4000, 4500, 5500, 6000, 8000 ],
+    third_party_insurance_private: [ 15000, 15000, 15000, 15000, null ],
+    third_party_insurance_commercial: [ 20000, 20000, 20000, 20000, 100000 ],
+    hackney_permit: [ 2300, 2500, 3000, 4000, null ],
+    heavy_duty_permit: [ null, null, null, null, 5000 ],
+    local_government_permit: [ 15000, 15000, 15000, 15000, 20000 ],
+    truck_trailer_permit: [ null, null, null, null, 5000 ]
 }
-
-//Order of object: 1: Salon Car Mini(1.4 - 1.7) e.g Picanto Corolla | 2: Salon Car Mini(2.0 - 2.6) e.g Camry, Benz, Accord | 3: SUV,JEEP,BUS,PICKUP |4: Truck Tipper/Trailer |5: Coaster Bus
-
-//Order of array Vehicle license | Road Worthiness | Insurance | Hackney Permit | Local Governmanet Permit | Heavy Duty | Truck and Trailer Permit
-
-const private_vehicle = {
-    1: [ 2500, 4500, 15000, 2300, 15000, null, null ],
-    2: [ 3000, 5000, 15000, 2500, 15000, null, null ],
-    3: [ 4000, 6000, 15000, 2500, 15000, null, null ],
-    4: [ 6000, null, null, 4500, 20000, 5000, 50000 ],
-    5: [ 4000, 6500, 15000, 4000, 15000, null, null]
-}
-
-const commercial_vehicle = {
-    1: [ 2500, 4000, 20000, 2300, 15000, null, null ],
-    2: [ 3000, 4500, 20000, 2500, 15000,  null, null ],
-    3: [ 4000, 5500, 20000, 2500, 15000,  null, null ],
-    4: [ 6000, null, null, 4500, 20000, 5000, 50000 ],
-    5: [ 4000, 6000, 20000, 4000, 15000, null, null]
-}
-
 
 // Order of array is: private | commercial 
 const change_of_ownership = {
@@ -106,6 +75,8 @@ const other_permits = {
 let total_price = 0
 let x1 = 0
 let x2 = 0
+let x3 = null
+let x4 = null
 
 // ============================================================================//
 
@@ -120,7 +91,13 @@ const mountTotal = (total) => {
 // NEW VEHICLE PAPERS
 
 const newPapers = (v1, v2) =>  {
-    console.log("v1 = " + v1 + "v2 = " + v2)
+    if (v1 == 4 || v1 == 5) {
+        document.getElementById('regType').selectedIndex = 0
+        document.querySelectorAll('.regType').forEach(opt => { opt.disabled = true })
+    } else {
+        document.querySelectorAll('.regType').forEach(opt => { opt.disabled = false })
+    }
+
     if (v1) x1 = v1
     if (v2) x2 = v2
     total_price = new_papers[x1 || v1][x2 || v2]
@@ -128,47 +105,62 @@ const newPapers = (v1, v2) =>  {
 }
 
 // RENEW VEHICLE PAPERS
-const licensePrice = (y) => {
-    let multiple = document.getElementById('demoInput1').value
-    console.log(multiple);
-    if (y === 'input_box') multiple + 1
-    return renew_papers.vehicle_license * multiple
-}
 
-const renewPapers = (e, x, y) => {
-    let collated_price = 0
-    let license_price = 0
-
-    // COLLATED PRICE 
-    if (e.target.checked === true) {
-        collated_price += renew_papers[x]
-    } else if (e.target.checked === false) {
-        collated_price -= renew_papers[x]
+const renewPapers = (e, v1, v2, v3, v4) => {
+    if (v1 !== null) {
+        x1 = v1
+        document.querySelectorAll(['input[type=checkbox]', 'input[type=radio]']).forEach(box => {
+            box.disabled = false 
+            box.checked = false
+        })
+        total_price = 0
+        x3 = 0
+        x4 = 0
+        mountTotal(total_price)
+    } 
+    else {
+        const priceObtained = (a, b) => {
+            let price = renew_papers[a][b]
+            if (price === null) {
+                if (e.target.type === 'radio') {
+                    document.getElementsByClassName(e.target.class).disabled = true
+                    document.getElementsByClassName(e.target.class).checked = false
+                } else {
+                    document.getElementsByName(e.target.name).forEach(box => {
+                        box.disabled = true
+                        box.checked = false
+                    })
+                }
+            }
+            return price
+        }
+        if (e.target.type === 'radio') {
+            if (v3) {
+                if (x3) {
+                    total_price -= priceObtained(x3, x1)
+                    total_price += priceObtained(v3, x1)
+                } else {
+                    total_price += priceObtained(v3, x1)
+                }
+                x3 = v3
+            } else if (v4) {
+                if (x4) {
+                    total_price -= priceObtained(x4, x1)
+                    total_price += priceObtained(v4, x1)
+                } else {
+                    total_price += priceObtained(v4, x1)
+                }
+                x4 = v4
+            }
+        } else if (e.target.checked === true) {
+            total_price += priceObtained(v2, x1)
+        } else if (e.target.checked === false) {
+            total_price -= priceObtained(v2, x1)
+        }
+        
+        mountTotal(total_price)
     }
 
-    // LICENSE PRICE
-    if (y) {
-        console.log('irannnnna')
-        license_price = licensePrice(y)
-    }
-    // if (y === 'add') {
-    //     console.log('added');
-    //     license_price += renew_papers.vehicle_license
-    //     console.log(license_price);
-    // } else if (y === 'sub') {
-    //     if (multiple > 1) {
-    //         console.log('subbed');
-    //         license_price -= renew_papers.vehicle_license
-    //     }
-    // } else if (y === 'input_box') {
-    //     console.log('input_box');
-    //     let multiple = document.getElementById('demoInput1').value
-    //     license_price = renew_papers.vehicle_license * multiple
-    // }
-    // TOTAL PRICE
-    total_price = collated_price + license_price
-
-    mountTotal(total_price)
 }
 
 // DRIVER LICENSE
