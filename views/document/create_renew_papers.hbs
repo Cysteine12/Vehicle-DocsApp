@@ -41,7 +41,8 @@
                     <input type="file" name="files" class="filepond pond" title="Upload" multiple required>
 
                     <h3>Select Vehicle</h3>
-                    <select name="vehicle_type" id="" title="Select cars" required>
+                    <select name="vehicle_type" id="" title="Select cars" onchange="if (typeof(this.selectedIndex) != 'undefined') renewPapers(event, this.selectedIndex-1)" required>
+                        <option selected disabled hidden>Select Category of Vehicle</option>
                         <option value="Saloon Car-Mini(1.4-1.9L)">Saloon Car-Mini(1.4-1.9L) e.p. Picanto, Corolla, Almera, Civic</option>
                         <option value="Saloon Car-Maxi(2.0-2.6L)">Saloon Car-Maxi(2.0-2.6L) e.g. Camry, Benz, Accord, Lexus & Others</option>
                         <option value="SUV | Jeep | Bus | Pick-Up | Crossover">SUV | Jeep | Bus | Pick-Up | Crossover</option>
@@ -53,77 +54,46 @@
                     <table class="table">
                     
                         <tr>
-                            <td><input type="checkbox" name="vehicle_license" id="" title="Add" onclick="renewPapers(event, 'vehicle_license')"></td>
+                            <td><input type="checkbox" name="vehicle_license" id="" title="Add" onclick="renewPapers(event, null, 'vehicle_license')"></td>
                             <td>Vehicle License</td>
-                            {{!-- <td class="counter">
-                                <button type="button" onclick="decrement('demoInput1'); renewPapers(event, 'vehicle_license', 'sub')">+</button>
-                                <input name="vehicle_license_no" id="demoInput1" value="0" type="number" min="0" max="100" title="counter" onchange="renewPapers(event, 'vehicle_license', 'input_box')" oninput="renewPapers(event, 'vehicle_license', 'input_box')">
-                                <button type="button" onclick="increment('demoInput1'); renewPapers(event, 'vehicle_license', 'add')">-</button>
-                            </td> --}}
+                        </tr>
+
+                        <tr>
+                            <td><input type="radio" name="road_worthiness" class="r_w_p" value="road_worthiness_private" onclick="renewPapers(event, null, null, 'road_worthiness_private')"></td>
+                            <td>Road Worthiness(Private)</td>
+
+                            <td><input type="radio" name="road_worthiness" class="r_w_c" value="road_worthiness_commercial" onclick="renewPapers(event, null, null, 'road_worthiness_commercial')"></td>
+                            <td>Road Worthiness(Commercial)</td>
+                        </tr>
+
+                        <tr>
+                            <td><input type="radio" name="third_party_insurance" class="t_i_p" value="third_party_insurance_private" onclick="renewPapers(event, null, null, null, 'third_party_insurance_private')"></td>
+                            <td>Third Party Insurance(Private)</td>
+
+                            <td><input type="radio" name="third_party_insurance" class="t_i_c" value="third_party_insurance_commercial" onclick="renewPapers(event, null, null, null, 'third_party_insurance_commercial')"></td>
+                            <td>Third Party Insurance(Commercial)</td>
                         </tr>
                     
                         <tr>
-                            <td><input type="checkbox" name="road_worthiness" id="" title="Add" onclick="renewPapers(event, 'road_worthiness')"></td>
-                            <td>Road Worthiness(commercial)</td>
-                    
-                        </tr>
-                    
-                        <tr>
-                            <td><input type="checkbox" name="third_party_insurance" id="" title="Add" onclick="renewPapers(event, 'third_party_insurance')"></td>
-                            <td>Third Party Insurance</td>
-                    
-                        </tr>
-                    
-                        <tr>
-                            <td><input type="checkbox" name="hackney_permit" id="" title="Add" onclick="renewPapers(event, 'hackney_permit')"></td>
+                            <td><input type="checkbox" name="hackney_permit" id="" title="Add" onclick="renewPapers(event, null, 'hackney_permit')"></td>
                             <td>Hackney Permit</td>
-                            {{!-- <td class="counter">
-                                <button type="button" onclick="decrement('demoInput2')"></button>
-                                <input name="hackney_permit_no" id="demoInput2" value="1" type="number" min="0" max="100" title="counter">
-                                <button type="button" onclick="increment('demoInput2')"></button>
-                            </td> --}}
                         </tr>
                     
                         <tr>
-                            <td><input type="checkbox" name="heavy_duty_permit" id="" title="Add" onclick="renewPapers(event, 'heavy_duty_permit')"></td>
+                            <td><input type="checkbox" name="heavy_duty_permit" id="" title="Add" onclick="renewPapers(event, null, 'heavy_duty_permit')"></td>
                             <td>Heavy Duty Permit</td>
                     
                         </tr>
                     
                         <tr>
-                            <td><input type="checkbox" name="local_govt_permit_nigeria" id="" title="Add" onclick="renewPapers(event, 'local_government_permit_nigeria')"></td>
-                            <td>Local Govt. Permit (Nigeria)</td>
+                            <td><input type="checkbox" name="local_govt_permit" id="" title="Add" onclick="renewPapers(event, null, 'local_government_permit')"></td>
+                            <td>Local Govt. Permit</td>
                     
                         </tr>
-                    
+                        
                         <tr>
-                            <td><input type="checkbox" name="local_govt_permit_southwest" id="" title="Add" onclick="renewPapers(event, 'local_government_permit_southwest')"></td>
-                            <td>Local Govt. Permit (Southwest)</td>
-                    
-                        </tr>
-                    
-                        <tr>
-                            <td><input type="checkbox" name="state_carriage_permit" id="" title="Add" onclick="renewPapers(event, 'state_carriage_permit')"></td>
-                            <td>State Carriage Permit</td>
-                    
-                        </tr>
-                    
-                        <tr>
-                            <td><input type="checkbox" name="og_hut" id="" title="Add" onclick="renewPapers(event, 'og_hut')"></td>
-                            <td>OG-HUT(Highway Users Tax)</td>
-                    
-                        </tr>
-                    
-                        <tr>
-                            <td><input type="checkbox" name="truck_trailer_permit" id="" title="Add" onclick="renewPapers(event, 'truck_trailer_permit')"></td>
+                            <td><input type="checkbox" name="truck_trailer_permit" id="" title="Add" onclick="renewPapers(event, null, 'truck_trailer_permit')"></td>
                             <td>Truck & Trailer Permit (TTP)</td>
-                    
-                        </tr>
-                    
-                        <tr>
-                            <td><input type="checkbox" name="mid_year_permit" id="" title="Add" onclick="renewPapers(event, 'mid_year_permit')"></td>
-                            <td>Mid Year Permit</td>
-                    
                         </tr>
                     </table>
 
@@ -142,3 +112,8 @@
     </div>
 
 </div>
+
+<script>
+    document.querySelectorAll('input[type=checkbox]').forEach(box => { box.disabled = true })
+    document.querySelectorAll('input[type=radio]').forEach(box => { box.disabled = true })
+</script>
