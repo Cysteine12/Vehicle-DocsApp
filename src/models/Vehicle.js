@@ -24,7 +24,7 @@ const vehicleSchema = new Schema({
     year: {
         type: Number,
         min: 4,
-        required: true,
+        required: false,
     },
     engineNo: {
         type: String,

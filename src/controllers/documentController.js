@@ -31,17 +31,16 @@ const store_vehicle_papers = async (req, res) => {
             brand: req.body.brand,
             model: req.body.model,
             plateNo: 'Nil',
-            year: 'Nil',
             engineNo: req.body.engineNo,
             chassisNo: req.body.chassisNo,
             color: req.body.color,
             location: req.body.location
         })
-        await vehicle.save()
+        const veh = await vehicle.save()
     
         const document = new Document({
             userId: req.user._id,
-            vehicleId: req.body.vehicleId,
+            vehicleId: veh._id,
             docType: 'Vehicle-Papers',
             data: {
                 doc_name: req.body.doc_name,
@@ -49,7 +48,6 @@ const store_vehicle_papers = async (req, res) => {
                 phone1: req.body.phone1,
                 phone2: req.body.phone2,
                 reg_type: req.body.reg_type,
-                plate_type: req.body.plate_type,
                 location: req.body.location,
                 amount: req.body.amount
             },
