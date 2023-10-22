@@ -40,8 +40,8 @@ const comprehensive_insurance = {
 
 // Order of object is: national_3_years_validity | national_5_years_validity | international_1_year
 const driver_license = {
-    1: 21000,
-    2: 26000,
+    1: 15500,
+    2: 21500,
     3: 18000
 }
 
@@ -114,8 +114,8 @@ const renewPapers = (e, v1, v2, v3, v4) => {
             box.checked = false
         })
         total_price = 0
-        x3 = 0
-        x4 = 0
+        x3 = null
+        x4 = null
         mountTotal(total_price)
     } 
     else {

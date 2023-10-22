@@ -123,6 +123,7 @@ const create_renew_papers = async (req, res) => {
 
 const store_renew_papers = async (req, res) => {
     try {
+        console.log(req.body);
         const document = new Document({
             userId: req.user._id,
             docType: 'Renew-Papers',

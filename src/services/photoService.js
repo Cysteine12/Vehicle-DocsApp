@@ -1,3 +1,5 @@
+// used along with filepond 
+
 const savePhoto = (document, photoEncoded) => {
     let imageMimeTypes = ['image/jpeg', 'image/png', 'image/jpg']
 
