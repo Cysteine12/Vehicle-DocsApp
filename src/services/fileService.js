@@ -25,7 +25,7 @@ const uploadFile = async (encodedFile) => {
             requestBody: {
                 name: file.name,
                 mimetype: 'application/json',
-                parents: ['17VUIouYcYivUt1U_ufANRsPQPPWhFbdu']
+                parents: ['1ZBD3kULS-INdh2Pzw-hHZrR3Ns0wvQlE']
             },
             media: {
                 mimeType: file.type,
