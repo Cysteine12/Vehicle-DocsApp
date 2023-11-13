@@ -13,6 +13,16 @@ const { ensureAuth, ensureGuest } = require('../middlewares/auth')
 
 router.get('/', ensureGuest, IndexController.index)
 
+router.get('/about', ensureGuest, IndexController.about)
+
+router.get('/contact', ensureGuest, IndexController.contact)
+
+router.get('/services', ensureGuest, IndexController.services)
+
+router.get('/login', ensureGuest, IndexController.login)
+
+router.get('/register', ensureGuest, IndexController.register)
+
 router.post('/send-mail', IndexController.sendEmail)
 
 router.get('*', IndexController.error)

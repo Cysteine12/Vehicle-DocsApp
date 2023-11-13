@@ -18,7 +18,7 @@ router.post(
     AuthController.register,
     passport.authenticate('local', { 
         successRedirect: '/dashboard',
-        failureRedirect: '/',
+        failureRedirect: '/register',
         failureFlash: true
     })
 )
@@ -28,7 +28,7 @@ router.post(
     ensureGuest,
     passport.authenticate('local', { 
         successRedirect: '/dashboard',
-        failureRedirect: '/',
+        failureRedirect: '/login',
         failureFlash: true
     })
 )

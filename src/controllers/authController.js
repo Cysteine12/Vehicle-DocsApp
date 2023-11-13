@@ -32,6 +32,7 @@ const register = async (req, res, next) => {
 
 const profile = async (req, res) => {
     res.status(200).render('user/user_profile', {
+        layout: 'user_layout',
         msg: req.flash('msg'),
         user: req.user
     })

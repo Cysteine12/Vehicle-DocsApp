@@ -55,7 +55,7 @@ app.use(methodOverride((req, res) => {
 //=======Views======//
 app.engine('.hbs', exphbs.engine({ 
     extname: '.hbs', 
-    defaultLayout: 'main',
+    defaultLayout: 'main_layout',
     helpers: hbsHelpers
 }))
 app.set('view engine', '.hbs')

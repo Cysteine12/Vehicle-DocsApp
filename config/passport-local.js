@@ -11,6 +11,7 @@ module.exports = (passport) => {
     async (req, email, password, done) => {
         try {
             let user;
+            console.log('wahla')
             if (req.body.role !== 'admin') {
                 user = await User.findOne({ email: email, role: 'user' }).lean()
             } else {

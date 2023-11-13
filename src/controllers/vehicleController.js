@@ -8,6 +8,7 @@ const create = async (req, res) => {
         const vehicles = await Vehicle.find({ userId: _id }).lean()
 
         res.status(200).render('vehicle/create', {
+            layout: 'user_layout',
             msg: req.flash('msg'),
             vehicles: vehicles
         })
@@ -47,6 +48,7 @@ const show = async (req, res) => {
         
         const vehicle = await Vehicle.findOne({ _id: id }).lean()
         res.status(200).render('vehicle/show', {
+            layout: 'user_layout',
             msg: req.flash('msg'),
             vehicle: vehicle
         })
@@ -61,6 +63,7 @@ const edit = async (req, res) => {
         
         const vehicle = await Vehicle.findOne({ _id: id }).lean()
         res.status(200).render('vehicle/edit', {
+            layout: 'user_layout',
             vehicle: vehicle
         })
     } catch (err) {

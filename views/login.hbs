@@ -1,0 +1,20 @@
+<div id="id01" class="modal">
+        <div class="back"><a href="/"><img src="/svg/left-arrow.svg" alt=""></a></div>
+        <form class="modal-content" action="/login" method="POST">
+            <div class="container">
+              
+                <h1>Login</h1>
+                <span style="color: #c40505">{{ msg }}</span>
+                
+                <input name="email" type="email" title="Email Address" placeholder="Email Address" required>
+                <input name="password" type="password" title="Password" placeholder="Password" required>
+               
+                
+                <p>Not a user? <span><a href="/register">Sign up</a></span></p>
+                <div class="clearfix">
+
+                    <button type="submit" class="signupbtn">Login</button>
+                </div>
+            </div>
+        </form>
+    </div>

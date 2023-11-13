@@ -9,6 +9,7 @@ const dashboard = async (req, res) => {
     const vehicleCount = await Vehicle.find({ userId: _id }).count('vehicleCount')
     
     res.status(200).render('user/dashboard', {
+        layout: 'user_layout',
         msg: req.flash('msg'),
         documents: documents,
         count: {

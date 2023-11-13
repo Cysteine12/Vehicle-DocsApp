@@ -9,6 +9,44 @@ const index = async (req, res) => {
     })
 }
 
+const about = async (req, res) => {
+    res.status(200).render('about', {
+        msg: req.flash('err-msg'),
+        mailStatus: req.flash('mailStatus'),
+        user: req.user
+    })
+}
+
+const contact = async (req, res) => {
+    res.status(200).render('contact', {
+        msg: req.flash('err-msg'),
+        mailStatus: req.flash('mailStatus'),
+        user: req.user
+    })
+}
+
+const services = async (req, res) => {
+    res.status(200).render('services', {
+        msg: req.flash('err-msg'),
+        mailStatus: req.flash('mailStatus'),
+        user: req.user
+    })
+}
+
+const login = async (req, res) => {
+    res.status(200).render('login', {
+        layout: 'form_layout',
+        msg: req.flash('err-msg')
+    })
+}
+
+const register = async (req, res) => {
+    res.status(200).render('register', {
+        layout: 'form_layout',
+        msg: req.flash('err-msg')
+    })
+}
+
 const sendEmail = async (req, res) => {
     try {
         await emailService.sendEmail(req.body)
@@ -30,6 +68,11 @@ const error = async (req, res) => {
 
 module.exports = {
     index,
+    about,
+    contact,
+    services,
+    login,
+    register,
     sendEmail,
     error
 }

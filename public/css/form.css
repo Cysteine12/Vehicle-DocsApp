@@ -1,0 +1,137 @@
+
+
+     
+/*Modal**/
+
+ body {
+     font-family: Arial, Helvetica, sans-serif;
+     margin: 0;
+ }
+
+ * {
+     box-sizing: border-box;
+ }
+
+ a{
+    text-decoration: none;
+    
+ }
+
+ span a{
+    color: #4dc247;
+ }
+ /* Full-width input fields */
+ input[type=text],
+ input[type=email],
+ input[type=tel],
+ input[type=password]
+  {
+     width: 100%;
+     padding: 15px;
+     margin: 5px 0 10px 0;
+     display: inline-block;
+     border: none;
+     background: #f1f1f1;
+ }
+
+ input[type=checkbox]{
+    width: 15px;
+ }
+
+
+
+ /* Add a background color when the inputs get focus */
+ input[type=text]:focus,
+ input[type=password]:focus {
+     background-color: #ddd;
+     outline: none;
+ }
+
+ /* Set a style for all buttons */
+button  {
+     background-color: #4dc247;
+     color: white;
+     padding: 14px 20px;
+     margin: 8px 0;
+     border: none;
+     cursor: pointer;
+     width: 100%;
+     opacity: 0.9;
+ }
+
+ button:hover {
+     opacity: 1;
+ }
+
+
+ /* Add padding to container elements */
+ .container {
+     padding: 16px;
+ }
+
+ .container select{
+     width: 100%;
+     padding: 15px;
+     margin: 5px 0 10px 0;
+     display: inline-block;
+ }
+
+ /* The Modal (background) */
+ .modal {
+     display: block;
+     /* Hidden by default */
+     position: fixed;
+     /* Stay in place */
+     z-index: 1;
+     /* Sit on top */
+     left: 0;
+     top: 0;
+     width: 100%;
+     /* Full width */
+     height: 100%;
+     /* Full height */
+     overflow: auto;
+     /* Enable scroll if needed */
+     background:url(/svg/Shiny\ Overlay.svg) no-repeat center center;
+     background-size: cover;
+     padding-top: 50px;
+     margin: 0;
+ }
+
+ /* Modal Content/Box */
+ .modal-content {
+     background-color: #fefefe;
+     margin: 5% auto 15% auto;
+     /* 5% from the top, 15% from the bottom and centered */
+     border: 1px solid #888;
+     border:none;
+     border-radius:10px;
+     max-width: 400px;
+
+     /* Could be more or less, depending on screen size */
+ }
+
+ /* Clear floats */
+
+ .clearfix{
+    align-items: center;
+    display: flex;
+    margin: 0 auto;
+ }
+
+  
+ /* Float cancel and signup buttons and add an equal width */
+ .signupbtn {
+   
+     width: 100%;
+     height: 50px;
+    padding: 20px auto;
+ }
+
+ .back img{
+    width:60px ;
+    padding-left: 20px;
+    color: rgb(192, 10, 10);
+    font-weight: 500;;
+ }
+    

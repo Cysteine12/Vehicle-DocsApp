@@ -12,6 +12,7 @@ const create_payment = async (req, res) => {
         }).populate('vehicleId').sort({ createdAt: -1 }).lean()
     
         res.status(200).render('payment/cart', {
+            layout: 'user_layout',
             user: req.user,
             msg: req.flash('msg'),
             documents: documents
@@ -57,6 +58,7 @@ const record_payment = async (req, res) => {
         })
         
         res.status(200).render('payment/view', {
+            layout: 'user_layout',
             user: req.user,
             status: 'Payment Successful', 
             data: response
@@ -74,6 +76,7 @@ const get_payment = async (req, res) => {
         const response = await paymentService.getPayment(req.params)
         
         res.status(200).render('payment/view', {
+            layout: 'user_layout',
             user: req.user,
             status: 'Payment Successful', 
             data: response

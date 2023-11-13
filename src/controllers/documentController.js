@@ -77,6 +77,7 @@ const show_vehicle_papers = async (req, res) => {
         const document = await Document.findOne({ _id: id }).populate('vehicleId').lean()
                 
         res.status(200).render('document/show_new_papers', {
+            layout: 'user_layout',
             msg: req.flash('msg'),
             document: document,
             user: req.user,
@@ -165,6 +166,7 @@ const show_renew_papers = async (req, res) => {
         const document = await Document.findOne({ _id: id }).lean()
          
         res.status(200).render('document/show_renew_papers', {
+            layout: 'user_layout',
             msg: req.flash('msg'),
             document: document,
             user: req.user,
@@ -243,6 +245,7 @@ const show_driver_license = async (req, res) => {
         const document = await Document.findOne({ _id: id }).lean()
         
         res.status(200).render('document/show_driver_license', {
+            layout: 'user_layout',
             msg: req.flash('msg'),
             document: document,
             user: req.user,
@@ -330,6 +333,7 @@ const show_ownership_change = async (req, res) => {
         const document = await Document.findOne({ _id: id }).populate('vehicleId').lean()
     
         res.status(200).render('document/show_ownership_change', {
+            layout: 'user_layout',
             msg: req.flash('msg'),
             document: document,
             user: req.user,
@@ -403,6 +407,7 @@ const show_comprehensive_insurance = async (req, res) => {
         const document = await Document.findOne({ _id: id }).lean()
         
         res.status(200).render('document/show_comprehensive_insurance', {
+            layout: 'user_layout',
             msg: req.flash('msg'),
             document: document,
             user: req.user,
@@ -469,6 +474,7 @@ const show_other_permits = async (req, res) => {
         const document = await Document.findOne({ _id: id }).lean()
         
         res.status(200).render('document/show_other_permits', {
+            layout: 'user_layout',
             msg: req.flash('msg'),
             document: document,
             user: req.user,
