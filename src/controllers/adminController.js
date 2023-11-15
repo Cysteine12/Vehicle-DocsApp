@@ -40,6 +40,7 @@ const register = async (req, res, next) => {
 
 const profile = async (req, res) => {
     res.status(200).render('admin/admin_profile', {
+        layout: 'uploads_layout',
         msg: req.flash('msg'),
         user: req.user
     })
@@ -96,6 +97,7 @@ const dashboard = async (req, res) => {
     const processingCount = await Document.find({ status: 'processing' }).count('processingCount')
     
     res.status(200).render('admin/dashboard', {
+        layout: 'uploads_layout',
         msg: req.flash('msg'),
         documents: documents,
         count: {
@@ -287,6 +289,7 @@ const show_other_permits = async (req, res) => {
     const document = await Document.findOne({ _id: id }).lean()
     
     res.status(200).render('admin/document/show_other_permits', {
+        layout: 'uploads_view_layout',
         msg: req.flash('msg'),
         document: document,
         user: req.user,
