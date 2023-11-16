@@ -7,6 +7,7 @@ const photoService = require('../services/photoService')
 
 const login = async (req, res) => {
     res.status(200).render('admin/home', {
+        layout: 'uploads_view_layout',
         msg: req.flash('err-msg'),
         user: req.user
     })
