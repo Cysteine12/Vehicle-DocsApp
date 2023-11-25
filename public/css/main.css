@@ -2942,10 +2942,10 @@ section {
 
 
 .logout button{
-    background-color:var(--black1);
+    background-color:var(--color-dark);
     border-radius: 2px;
-    width: 90px;
-    height: 40px;
+    padding:2px;
+    width: 80px;
     position: absolute;
     top: 0;
     right: 60px;
