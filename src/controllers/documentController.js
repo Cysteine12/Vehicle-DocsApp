@@ -23,50 +23,68 @@ const create_vehicle_papers = async (req, res) => {
 
 const store_vehicle_papers = async (req, res) => {
     try {
-        const { _id } = req.user
-    
-        const vehicle = new Vehicle({
-            userId: _id,
-            category: req.body.category,
-            brand: req.body.brand,
-            model: req.body.model,
-            plateNo: 'Nil',
-            engineNo: req.body.engineNo,
-            chassisNo: req.body.chassisNo,
-            color: req.body.color,
-            location: req.body.location
-        })
-        const veh = await vehicle.save()
-    
-        const document = new Document({
-            userId: req.user._id,
-            vehicleId: veh._id,
-            docType: 'Vehicle-Papers',
-            data: {
-                state: req.body.state,
-                doc_name: req.body.doc_name,
-                address: req.body.address,
-                phone1: req.body.phone1,
-                phone2: req.body.phone2,
-                reg_type: req.body.reg_type,
-                location: req.body.location,
-                amount: req.body.amount
-            },
-            fileId: [],
-            status: 'submitted'
-        })
-
-        for (i = 0; i < req.body.files.length; i++) {
-            const response = await fileService.uploadFile(req.body.files[i])
-            document.fileId.push(await response.id)
+        let fileId = []
+        let uploaded = false
+        if (Array.isArray(req.body.files)) {
+            req.body.files.forEach(async (file) => {
+                let response = await fileService.uploadFile(file)
+                fileId.push(await response.id)
+                console.log(fileId)
+            })
+            console.log(fileId)
+            uploaded = true
+        } else {
+            let response = await fileService.uploadFile(req.body.files)
+            fileId.push(await response.id)
+            uploaded = true
         }
+        console.log(fileId)
+        let data;
+        if (uploaded) {
+            const { _id } = req.user
         
-        const data = await document.save()
+            const vehicle = new Vehicle({
+                userId: _id,
+                category: req.body.category,
+                brand: req.body.brand,
+                model: req.body.model,
+                plateNo: 'Nil',
+                engineNo: req.body.engineNo,
+                chassisNo: req.body.chassisNo,
+                color: req.body.color,
+                location: req.body.location
+            })
+            const veh = await vehicle.save()
         
+            const document = new Document({
+                userId: req.user._id,
+                vehicleId: veh._id,
+                docType: 'Vehicle-Papers',
+                data: {
+                    state: req.body.state,
+                    doc_name: req.body.doc_name,
+                    address: req.body.address,
+                    phone1: req.body.phone1,
+                    phone2: req.body.phone2,
+                    reg_type: req.body.reg_type,
+                    location: req.body.location,
+                    amount: req.body.amount
+                },
+                fileId: fileId,
+                status: 'submitted'
+            })
+            
+            data = await document.save()
+        } else {
+            throw new Error(response.response.data.error)
+        }
+
         req.flash('msg', 'Document Uploaded successfully')
         res.status(200).redirect(`/document/vehicle-papers/${data._id}`)
     } catch (err) {
-        res.status(404).json({ err })
+        console.log(err.message)
+        req.flash('msg', err.message)
+        res.redirect('/document/vehicle-papers')
     }
 }
 
@@ -75,7 +93,7 @@ const show_vehicle_papers = async (req, res) => {
         const { id } = req.params
     
         const document = await Document.findOne({ _id: id }).populate('vehicleId').lean()
-                
+                console.log((document))
         res.status(200).render('document/show_new_papers', {
             layout: 'user_layout',
             msg: req.flash('msg'),
@@ -438,7 +456,7 @@ const destroy_comprehensive_insurance = async (req, res) => {
 const create_other_permits = async (req, res) => {
     
     res.status(200).render('document/create_other_permits', {
-        layout: 'uploads_layout',
+        layout: 'uploads_view_layout',
         msg: req.flash('msg'),
         user: req.user
     })

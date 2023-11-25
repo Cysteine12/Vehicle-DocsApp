@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
         imageResizeTargetHeight: 300,
         imagePreviewMaxHeight: 1000,
         allowMultiple: true,
-        maxFiles: 5
+        maxFiles: 3
     })
 
     FilePond.parse(document.body)
